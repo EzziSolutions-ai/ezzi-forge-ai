@@ -1,4 +1,8 @@
-import PlaceholderPage from "../_PlaceholderPage";
+import ServicePageTemplate from "@/components/sections/ServicePageTemplate";
+import { getService } from "@/data/services";
+
 export default function MobileApp() {
-  return <PlaceholderPage title="Mobile Apps" />;
+  const service = getService("mobile-app");
+  if (!service) return null;
+  return <ServicePageTemplate service={service} />;
 }
