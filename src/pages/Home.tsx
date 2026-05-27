@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
 import Container from "@/components/layout/Container";
+import LightSection from "@/components/layout/LightSection";
+import HeroIllustration from "@/components/sections/HeroIllustration";
 
 import TrustStrip from "@/components/sections/TrustStrip";
 import Differentiators from "@/components/sections/Differentiators";
@@ -69,8 +71,9 @@ export default function Home() {
             variants={container}
             initial="hidden"
             animate="show"
-            className="flex min-h-[calc(100svh-5rem)] flex-col justify-center py-24 md:py-32"
+            className="grid min-h-[calc(100svh-5rem)] grid-cols-1 items-center gap-12 py-24 md:grid-cols-12 md:py-32"
           >
+            <div className="md:col-span-7">
             <motion.div variants={item} className="mb-8 inline-flex">
               <div className="inline-flex items-center gap-2.5 rounded-full border border-border bg-surface/60 px-3.5 py-1.5 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground backdrop-blur">
                 <span className="relative flex h-2 w-2">
@@ -149,20 +152,25 @@ export default function Home() {
                 ))}
               </div>
             </motion.div>
+            </div>
+
+            <motion.div variants={item} className="hidden md:col-span-5 md:block">
+              <HeroIllustration variant="home" className="h-full w-full max-w-[640px]" />
+            </motion.div>
           </motion.div>
         </Container>
       </section>
 
       {/* ───────────────── COMPOSED SECTIONS ───────────────── */}
       <TrustStrip />
-      <Differentiators />
+      <LightSection><Differentiators /></LightSection>
       <DualPath />
-      <ServicesSnapshot />
+      <LightSection><ServicesSnapshot /></LightSection>
       <FeaturedWork />
       <ProcessSnapshot />
-      <AIAdvantage />
+      <LightSection><AIAdvantage /></LightSection>
       <TestimonialsTeaser />
-      <FAQSnippet />
+      <LightSection><FAQSnippet /></LightSection>
       <FinalCTA />
     </>
   );

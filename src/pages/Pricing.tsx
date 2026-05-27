@@ -17,6 +17,8 @@ import {
   RefreshCw,
 } from "lucide-react";
 import Container from "@/components/layout/Container";
+import LightSection from "@/components/layout/LightSection";
+import HeroIllustration from "@/components/sections/HeroIllustration";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -131,8 +133,8 @@ export default function Pricing() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease }}
-            className="max-w-4xl py-20 md:py-28"
-          >
+            className="grid grid-cols-1 gap-10 py-20 md:grid-cols-12 md:items-center md:gap-12 md:py-28">
+            <div className="md:col-span-7">
             <div className="inline-flex items-center gap-2.5 rounded-full border border-border bg-surface/60 px-3.5 py-1.5 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground backdrop-blur">
               <span className="h-1.5 w-1.5 rounded-full bg-accent" />
               Pricing & Packages
@@ -148,6 +150,11 @@ export default function Pricing() {
               wallet. Tell us what you&apos;re building, and you&apos;ll have a written
               quote in 48 hours.
             </p>
+          
+            </div>
+            <div className="hidden md:col-span-5 md:block">
+              <HeroIllustration variant="pricing" className="h-full w-full max-w-[640px]" />
+            </div>
           </motion.div>
         </Container>
       </section>
@@ -197,8 +204,9 @@ export default function Pricing() {
         </Container>
       </section>
 
-      {/* ─── WHAT'S INCLUDED ─── */}
-      <section className="relative border-y border-border bg-surface/30 py-24 md:py-32">
+      {/* ─── WHAT'S INCLUDED (LIGHT) ─── */}
+      <LightSection className="py-24 md:py-32">
+      <section className="relative">
         <Container>
           <div className="grid grid-cols-1 gap-12 md:grid-cols-12">
             <div className="md:col-span-5">
@@ -234,6 +242,7 @@ export default function Pricing() {
           </div>
         </Container>
       </section>
+      </LightSection>
 
       {/* ─── ENGAGEMENT MODELS ─── */}
       <section className="relative py-24 md:py-32">

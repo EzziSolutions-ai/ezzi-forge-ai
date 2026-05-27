@@ -4,6 +4,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
 import Container from "@/components/layout/Container";
+import HeroIllustration from "@/components/sections/HeroIllustration";
 import CaseStudyVisual from "@/components/sections/CaseStudyVisual";
 import { caseStudies, industries } from "@/data/caseStudies";
 
@@ -63,8 +64,8 @@ export default function CaseStudies() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease }}
-            className="max-w-4xl py-20 md:py-24"
-          >
+            className="grid grid-cols-1 gap-10 py-20 md:grid-cols-12 md:items-center md:gap-12 md:py-24">
+            <div className="md:col-span-7">
             <div className="inline-flex items-center gap-2.5 rounded-full border border-border bg-surface/60 px-3.5 py-1.5 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground backdrop-blur">
               <span className="h-1.5 w-1.5 rounded-full bg-accent" />
               Selected work · Vol. 01 · 2026
@@ -80,6 +81,11 @@ export default function CaseStudies() {
               manufacturing dashboards, field-ops apps. Each one shipped on a
               tight timeline; each one still in production.
             </p>
+          
+            </div>
+            <div className="hidden md:col-span-5 md:block">
+              <HeroIllustration variant="case-studies" className="h-full w-full max-w-[640px]" />
+            </div>
           </motion.div>
         </Container>
       </section>

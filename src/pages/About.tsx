@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
 import Container from "@/components/layout/Container";
+import LightSection from "@/components/layout/LightSection";
+import HeroIllustration from "@/components/sections/HeroIllustration";
 import AIAdvantage from "@/components/sections/AIAdvantage";
 
 const ease = [0.16, 1, 0.3, 1] as const;
@@ -70,8 +72,8 @@ export default function About() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease }}
-            className="max-w-4xl py-20 md:py-24"
-          >
+            className="grid grid-cols-1 gap-10 py-20 md:grid-cols-12 md:items-center md:gap-12 md:py-24">
+            <div className="md:col-span-7">
             <div className="inline-flex items-center gap-2.5 rounded-full border border-border bg-surface/60 px-3.5 py-1.5 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground backdrop-blur">
               <span className="h-1.5 w-1.5 rounded-full bg-accent" />
               About us
@@ -85,6 +87,11 @@ export default function About() {
               for startups and SMBs in eight weeks, using AI to compress the parts of the
               cycle that don&apos;t need a human, and senior engineers on the parts that do.
             </p>
+          
+            </div>
+            <div className="hidden md:col-span-5 md:block">
+              <HeroIllustration variant="about" className="h-full w-full max-w-[640px]" />
+            </div>
           </motion.div>
         </Container>
       </section>
@@ -207,8 +214,8 @@ export default function About() {
         </Container>
       </section>
 
-      {/* AI ADVANTAGE (reused) */}
-      <AIAdvantage />
+      {/* AI ADVANTAGE (reused, now on light surface for contrast) */}
+      <LightSection><AIAdvantage /></LightSection>
 
       {/* BY THE NUMBERS */}
       <section className="relative border-y border-border bg-surface/30 py-24 md:py-32">

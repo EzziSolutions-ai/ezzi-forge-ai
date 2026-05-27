@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
 import Container from "@/components/layout/Container";
+import LightSection from "@/components/layout/LightSection";
+import HeroIllustration from "@/components/sections/HeroIllustration";
 import { services } from "@/data/services";
 import Differentiators from "@/components/sections/Differentiators";
 
@@ -30,8 +32,8 @@ export default function Services() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease }}
-            className="max-w-4xl py-20 md:py-24"
-          >
+            className="grid grid-cols-1 gap-10 py-20 md:grid-cols-12 md:items-center md:gap-12 md:py-24">
+            <div className="md:col-span-7">
             <div className="inline-flex items-center gap-2.5 rounded-full border border-border bg-surface/60 px-3.5 py-1.5 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground backdrop-blur">
               <span className="h-1.5 w-1.5 rounded-full bg-accent" />
               Services
@@ -47,6 +49,11 @@ export default function Services() {
               design — each built around the same AI-augmented workflow that gets
               production apps live in under 60 days.
             </p>
+          
+            </div>
+            <div className="hidden md:col-span-5 md:block">
+              <HeroIllustration variant="services" className="h-full w-full max-w-[640px]" />
+            </div>
           </motion.div>
         </Container>
       </section>
@@ -93,8 +100,8 @@ export default function Services() {
         </Container>
       </section>
 
-      {/* DIFFERENTIATORS (reused from home) */}
-      <Differentiators />
+      {/* DIFFERENTIATORS (reused from home, on light surface) */}
+      <LightSection><Differentiators /></LightSection>
 
       {/* CTA */}
       <section className="relative border-t border-border py-24 md:py-32">

@@ -84,6 +84,18 @@
   --warning: #f59e0b;
   --danger: #ef4444;
   --radius: 14px;
+
+  /* Light section tokens — for alternating light surfaces on the dark theme */
+  --light-bg: #FAFAF8;
+  --light-surface: #F4F2EE;
+  --light-surface-2: #ECE9E3;
+  --light-border: #E0DCD2;
+  --light-border-strong: #C8C1B2;
+  --light-foreground: #0B0A08;
+  --light-muted: #57534E;
+  --light-muted-2: #78716C;
+  --light-accent: #2563EB;
+  --light-accent-soft: #1E40AF;
 }
 
 @layer base {
@@ -161,5 +173,43 @@
 
   .text-balance {
     text-wrap: balance;
+  }
+
+  /* Light section utility — flips colors inside a section */
+  .light-section {
+    background-color: var(--light-bg);
+    color: var(--light-foreground);
+    --background: var(--light-bg);
+    --foreground: var(--light-foreground);
+    --surface: var(--light-surface);
+    --surface-2: var(--light-surface-2);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --muted: var(--light-muted);
+    --muted-2: var(--light-muted-2);
+    --muted-bg: var(--light-surface);
+    --accent: var(--light-accent);
+    --accent-soft: var(--light-accent-soft);
+    --accent-foreground: #ffffff;
+  }
+
+  /* Subtle paper-like grain for light sections */
+  .bg-light-grain {
+    background-color: var(--light-bg);
+    background-image:
+      radial-gradient(rgba(11, 10, 8, 0.04) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+
+  /* Image with dark gradient overlay — for tinting photos to match the dark theme */
+  .img-darken {
+    position: relative;
+  }
+  .img-darken::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(5,5,5,0.20) 0%, rgba(5,5,5,0.65) 100%);
+    pointer-events: none;
   }
 }

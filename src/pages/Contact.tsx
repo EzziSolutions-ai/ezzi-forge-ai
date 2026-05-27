@@ -13,6 +13,7 @@ import {
   Check,
 } from "lucide-react";
 import Container from "@/components/layout/Container";
+import HeroIllustration from "@/components/sections/HeroIllustration";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -61,8 +62,8 @@ export default function Contact() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease }}
-            className="max-w-4xl py-20 md:py-24"
-          >
+            className="grid grid-cols-1 gap-10 py-20 md:grid-cols-12 md:items-center md:gap-12 md:py-24">
+            <div className="md:col-span-7">
             <div className="inline-flex items-center gap-2.5 rounded-full border border-border bg-surface/60 px-3.5 py-1.5 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground backdrop-blur">
               <span className="relative flex h-2 w-2">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-60" />
@@ -80,6 +81,11 @@ export default function Contact() {
               Send the rough idea — what you&apos;re building, when you need it, what
               you can spend. A senior engineer replies within 48 hours.
             </p>
+          
+            </div>
+            <div className="hidden md:col-span-5 md:block">
+              <HeroIllustration variant="contact" className="h-full w-full max-w-[640px]" />
+            </div>
           </motion.div>
         </Container>
       </section>
