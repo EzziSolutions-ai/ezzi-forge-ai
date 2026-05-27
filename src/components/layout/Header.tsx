@@ -58,13 +58,17 @@ export default function Header() {
       <Container className="flex h-16 items-center justify-between md:h-20">
         <Link
           to="/"
-          className="group flex items-center gap-2 text-base font-semibold tracking-tight text-foreground"
+          className="group inline-flex items-center"
+          aria-label="Ezzi Solutions AI — Home"
         >
-          <span className="relative inline-flex h-7 w-7 items-center justify-center rounded-md bg-foreground text-background">
-            <span className="text-sm font-bold">E</span>
-            <span className="absolute -bottom-0.5 -right-0.5 h-2 w-2 rounded-full bg-accent shadow-glow" />
-          </span>
-          <span>Ezzi Solutions AI</span>
+          <img
+            src="/logo-ezzi-dark.png"
+            alt="Ezzi Solutions AI"
+            width="200"
+            height="46"
+            className="h-8 w-auto select-none transition-opacity duration-300 group-hover:opacity-80 md:h-9"
+            draggable={false}
+          />
         </Link>
 
         <nav className="hidden items-center gap-1 lg:flex">
