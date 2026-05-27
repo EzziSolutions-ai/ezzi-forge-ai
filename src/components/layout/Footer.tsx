@@ -37,15 +37,27 @@ export default function Footer() {
       <Container className="py-20">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-1">
-            <Link to="/" className="inline-flex" aria-label="Ezzi Solutions AI — Home">
+            <Link
+              to="/"
+              className="group inline-flex items-center gap-3"
+              aria-label="Ezzi Solutions AI — Home"
+            >
               <img
-                src="/logo-ezzi-dark.png"
-                alt="Ezzi Solutions AI — A Henagon Company"
-                width="260"
-                height="60"
-                className="h-12 w-auto select-none"
+                src="/logo-cube.png"
+                alt=""
+                width="48"
+                height="48"
+                className="h-10 w-10 select-none transition-transform duration-300 group-hover:scale-[1.04]"
                 draggable={false}
               />
+              <span className="flex flex-col leading-none">
+                <span className="text-base font-semibold tracking-tight text-foreground">
+                  Ezzi Solutions AI
+                </span>
+                <span className="mt-1.5 font-mono text-[9.5px] uppercase tracking-[0.22em] text-muted-2">
+                  A Henagon Company
+                </span>
+              </span>
             </Link>
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-muted-foreground">
               Custom software & apps — built with AI, launched in weeks.
