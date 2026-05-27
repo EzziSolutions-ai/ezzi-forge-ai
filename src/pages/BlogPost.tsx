@@ -1,6 +1,6 @@
-import { useParams } from "react-router-dom";
-import PlaceholderPage from "./_PlaceholderPage";
+import { Navigate } from "react-router-dom";
+
 export default function BlogPost() {
-  const { slug } = useParams();
-  return <PlaceholderPage title={slug ? `Post: ${slug}` : "Blog Post"} />;
+  // No posts yet — bounce visitors to the blog index until we publish.
+  return <Navigate to="/blog" replace />;
 }
