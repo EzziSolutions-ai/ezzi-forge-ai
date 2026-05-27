@@ -4,6 +4,17 @@ import { motion } from "framer-motion";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
 import Container from "@/components/layout/Container";
 
+import TrustStrip from "@/components/sections/TrustStrip";
+import Differentiators from "@/components/sections/Differentiators";
+import DualPath from "@/components/sections/DualPath";
+import ServicesSnapshot from "@/components/sections/ServicesSnapshot";
+import FeaturedWork from "@/components/sections/FeaturedWork";
+import ProcessSnapshot from "@/components/sections/ProcessSnapshot";
+import AIAdvantage from "@/components/sections/AIAdvantage";
+import TestimonialsTeaser from "@/components/sections/TestimonialsTeaser";
+import FAQSnippet from "@/components/sections/FAQSnippet";
+import FinalCTA from "@/components/sections/FinalCTA";
+
 const ease = [0.16, 1, 0.3, 1] as const;
 
 const container = {
@@ -42,14 +53,13 @@ export default function Home() {
         />
       </Helmet>
 
+      {/* ───────────────── HERO ───────────────── */}
       <section className="relative isolate overflow-hidden">
-        {/* Background layers */}
         <div className="absolute inset-0 -z-10 bg-hero-mesh" />
-        <div className="absolute inset-0 -z-10 bg-dot-grid opacity-[0.6]" />
+        <div className="absolute inset-0 -z-10 bg-dot-grid opacity-[0.55]" />
         <div className="absolute inset-x-0 bottom-0 -z-10 h-32 bg-gradient-to-t from-background to-transparent" />
 
-        {/* Subtle top-right corner accent line */}
-        <div className="pointer-events-none absolute right-6 top-6 hidden font-mono text-[10px] uppercase tracking-[0.25em] text-muted-2 md:block">
+        <div className="pointer-events-none absolute right-6 top-24 hidden font-mono text-[10px] uppercase tracking-[0.25em] text-muted-2 md:block">
           <span className="mr-2 inline-block h-px w-8 align-middle bg-border-strong" />
           v2026.1
         </div>
@@ -61,7 +71,6 @@ export default function Home() {
             animate="show"
             className="flex min-h-[calc(100svh-5rem)] flex-col justify-center py-24 md:py-32"
           >
-            {/* Eyebrow */}
             <motion.div variants={item} className="mb-8 inline-flex">
               <div className="inline-flex items-center gap-2.5 rounded-full border border-border bg-surface/60 px-3.5 py-1.5 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground backdrop-blur">
                 <span className="relative flex h-2 w-2">
@@ -72,7 +81,6 @@ export default function Home() {
               </div>
             </motion.div>
 
-            {/* Headline */}
             <motion.h1
               variants={item}
               className="text-h1 max-w-5xl text-balance text-foreground"
@@ -98,7 +106,6 @@ export default function Home() {
               , launched in weeks.
             </motion.h1>
 
-            {/* Sub */}
             <motion.p
               variants={item}
               className="mt-8 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg"
@@ -107,7 +114,6 @@ export default function Home() {
               AI-augmented engineers. 40–70% less than traditional agencies.
             </motion.p>
 
-            {/* CTAs */}
             <motion.div variants={item} className="mt-10 flex flex-wrap items-center gap-3">
               <Link
                 to="/contact"
@@ -125,7 +131,6 @@ export default function Home() {
               </Link>
             </motion.div>
 
-            {/* Stats strip */}
             <motion.div variants={item} className="mt-20 md:mt-28">
               <div className="grid grid-cols-2 divide-y divide-border overflow-hidden rounded-2xl border border-border bg-surface/40 backdrop-blur md:grid-cols-4 md:divide-x md:divide-y-0">
                 {stats.map((s) => (
@@ -147,6 +152,18 @@ export default function Home() {
           </motion.div>
         </Container>
       </section>
+
+      {/* ───────────────── COMPOSED SECTIONS ───────────────── */}
+      <TrustStrip />
+      <Differentiators />
+      <DualPath />
+      <ServicesSnapshot />
+      <FeaturedWork />
+      <ProcessSnapshot />
+      <AIAdvantage />
+      <TestimonialsTeaser />
+      <FAQSnippet />
+      <FinalCTA />
     </>
   );
 }
