@@ -103,7 +103,7 @@ export default function Contact() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, ease }}
-                  className="rounded-3xl border border-border bg-surface p-7 md:p-10"
+                  className="light-section bg-light-grain relative rounded-3xl border border-border-strong p-7 shadow-[0_30px_80px_-20px_rgba(59,130,246,0.25)] ring-1 ring-border md:p-10"
                 >
                   <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-2">
                     <span className="mr-3 inline-block h-px w-8 align-middle bg-border-strong" />
@@ -171,7 +171,7 @@ export default function Contact() {
                   </p>
                 </motion.form>
               ) : (
-                <div className="rounded-3xl border border-border bg-surface p-10 md:p-12">
+                <div className="light-section bg-light-grain rounded-3xl border border-border-strong p-10 shadow-[0_30px_80px_-20px_rgba(59,130,246,0.25)] ring-1 ring-border md:p-12">
                   <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-accent/20 bg-accent/10">
                     <Check className="h-5 w-5 text-accent" strokeWidth={2.5} />
                   </div>
