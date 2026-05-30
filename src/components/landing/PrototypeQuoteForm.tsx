@@ -1,6 +1,25 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, Check } from "lucide-react";
 import Container from "@/components/layout/Container";
+
+// Slack incoming webhook for #leads-from-prototype-to-production
+//
+// CONFIG REQUIRED — set VITE_SLACK_WEBHOOK_URL in Lovable's env vars:
+//   Lovable → Settings → Environment Variables → Add
+//     Name:  VITE_SLACK_WEBHOOK_URL
+//     Value: https://hooks.slack.com/services/T.../B.../...
+//
+// If the env var is unset, form submissions still succeed for the user
+// (success state shown) but no Slack notification fires — better UX than
+// a hard failure if the webhook is rotated mid-flight.
+//
+// Why env-var-only:
+//   - Slack webhook URLs are detected as secrets by GitHub push protection
+//   - Vite inlines env vars at build time so the URL still ends up in the
+//     deployed bundle, but git history stays clean (easy to rotate)
+const SLACK_WEBHOOK_URL = import.meta.env.VITE_SLACK_WEBHOOK_URL as
+  | string
+  | undefined;
 
 const projectTypes = [
   "Internal tool / ops platform",
@@ -13,14 +32,112 @@ const projectTypes = [
 
 const budgets = ["$10K – $25K", "$25K – $50K", "$50K+"] as const;
 
+// Spam-prevention: humans take at least this long to fill the form
+const MIN_FILL_MS = 2_000;
+
 export default function PrototypeQuoteForm() {
   const [projectType, setProjectType] = useState<(typeof projectTypes)[number]>(projectTypes[0]);
   const [budget, setBudget] = useState<(typeof budgets)[number]>(budgets[1]);
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const mountedAt = useRef<number>(0);
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  useEffect(() => {
+    mountedAt.current = Date.now();
+  }, []);
+
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // TODO: wire to backend / Resend / Formspree before launch
+    if (submitting) return;
+    setSubmitting(true);
+
+    const fd = new FormData(e.currentTarget);
+
+    // ── Spam guards ────────────────────────────────────────────
+    // 1. Honeypot — bots fill this hidden field; real humans don't
+    if ((fd.get("website") as string | null)?.trim()) {
+      // Silently succeed so bots don't learn the trap
+      setSubmitted(true);
+      return;
+    }
+    // 2. Fill-time check — forms submitted in under 2s are likely bots
+    if (Date.now() - mountedAt.current < MIN_FILL_MS) {
+      setSubmitted(true);
+      return;
+    }
+
+    const name = (fd.get("name") as string) ?? "";
+    const email = (fd.get("email") as string) ?? "";
+    const company = (fd.get("company") as string) ?? "(not provided)";
+    const tool = ((fd.get("tool") as string) ?? "").trim() || "(not provided)";
+    const stuck = (fd.get("stuck") as string) ?? "";
+
+    // ── Build Slack message ────────────────────────────────────
+    // Using Block Kit for a nicely formatted message in the channel.
+    const payload = {
+      text: `New lead — ${name} · ${projectType} · ${budget}`,
+      blocks: [
+        {
+          type: "header",
+          text: {
+            type: "plain_text",
+            text: "🚨 New lead — /from-prototype-to-production",
+            emoji: true,
+          },
+        },
+        {
+          type: "section",
+          fields: [
+            { type: "mrkdwn", text: `*Name*\n${name}` },
+            { type: "mrkdwn", text: `*Email*\n<mailto:${email}|${email}>` },
+            { type: "mrkdwn", text: `*Company*\n${company}` },
+            { type: "mrkdwn", text: `*Budget*\n${budget}` },
+            { type: "mrkdwn", text: `*Project type*\n${projectType}` },
+            { type: "mrkdwn", text: `*AI tool tried*\n${tool}` },
+          ],
+        },
+        {
+          type: "section",
+          text: {
+            type: "mrkdwn",
+            text: `*Where it broke:*\n>${stuck.replace(/\n/g, "\n>")}`,
+          },
+        },
+        {
+          type: "context",
+          elements: [
+            {
+              type: "mrkdwn",
+              text: `📥 Submitted at ${new Date().toLocaleString("en-US", { dateStyle: "medium", timeStyle: "short" })} · 🔗 https://ezzi-forge-ai.lovable.app/from-prototype-to-production`,
+            },
+          ],
+        },
+        { type: "divider" },
+      ],
+    };
+
+    // ── Fire-and-forget POST (no-cors avoids the OPTIONS preflight) ──
+    if (!SLACK_WEBHOOK_URL) {
+      // eslint-disable-next-line no-console
+      console.warn("[Ezzi] VITE_SLACK_WEBHOOK_URL is not set. Lead captured in UI only.");
+      setSubmitted(true);
+      return;
+    }
+
+    try {
+      await fetch(SLACK_WEBHOOK_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+    } catch (err) {
+      // Log but don't block — we'd rather show success and miss a Slack ping
+      // than make the user think their submission failed.
+      // eslint-disable-next-line no-console
+      console.error("Slack notification failed:", err);
+    }
+
     setSubmitted(true);
   };
 
@@ -73,6 +190,22 @@ export default function PrototypeQuoteForm() {
                   Send us the story.
                 </h3>
 
+                {/* Honeypot — visually hidden but accessible to bots scraping the DOM */}
+                <div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute -left-[9999px] top-0 h-0 w-0 overflow-hidden opacity-0"
+                  tabIndex={-1}
+                >
+                  <label htmlFor="website">Website (leave blank)</label>
+                  <input
+                    type="text"
+                    id="website"
+                    name="website"
+                    tabIndex={-1}
+                    autoComplete="off"
+                  />
+                </div>
+
                 <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-2">
                   <Field label="Your name" name="name" placeholder="Jane Founder" required />
                   <Field
@@ -88,7 +221,6 @@ export default function PrototypeQuoteForm() {
                   <Field label="Company" name="company" placeholder="YourCo Inc." />
                 </div>
 
-                {/* Project type chips */}
                 <div className="mt-7">
                   <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-2">
                     What were you trying to build?
@@ -111,7 +243,6 @@ export default function PrototypeQuoteForm() {
                   </div>
                 </div>
 
-                {/* Which AI tool — open text */}
                 <div className="mt-7">
                   <label
                     htmlFor="tool"
@@ -123,12 +254,11 @@ export default function PrototypeQuoteForm() {
                     id="tool"
                     name="tool"
                     type="text"
-                    placeholder="e.g. the popular one with the Vite-based editor"
+                    placeholder="e.g. Lovable, Bolt, Cursor, v0…"
                     className="mt-2 w-full rounded-2xl border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-2 focus:border-border-strong focus:outline-none focus:ring-1 focus:ring-accent/40"
                   />
                 </div>
 
-                {/* Where it broke */}
                 <div className="mt-5">
                   <label
                     htmlFor="stuck"
@@ -146,7 +276,6 @@ export default function PrototypeQuoteForm() {
                   />
                 </div>
 
-                {/* Budget chips */}
                 <div className="mt-7">
                   <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-2">
                     Rough budget
@@ -171,10 +300,13 @@ export default function PrototypeQuoteForm() {
 
                 <button
                   type="submit"
-                  className="group mt-9 inline-flex w-full items-center justify-center gap-2 rounded-full bg-accent px-6 py-4 text-sm font-medium text-accent-foreground transition-all hover:bg-accent/90 hover:shadow-glow active:scale-[0.98] md:w-auto md:px-8"
+                  disabled={submitting}
+                  className="group mt-9 inline-flex w-full items-center justify-center gap-2 rounded-full bg-accent px-6 py-4 text-sm font-medium text-accent-foreground transition-all hover:bg-accent/90 hover:shadow-glow active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-70 md:w-auto md:px-8"
                 >
-                  Send my situation
-                  <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  {submitting ? "Sending…" : "Send my situation"}
+                  {!submitting && (
+                    <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  )}
                 </button>
 
                 <p className="mt-5 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-2">
