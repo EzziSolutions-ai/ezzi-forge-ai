@@ -5,6 +5,9 @@
  * Usage:  <HeroIllustration variant="home" className="..." />
  */
 
+import type { ReactElement } from "react";
+
+
 export type HeroVariant =
   | "home"
   | "services"
