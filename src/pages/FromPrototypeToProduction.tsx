@@ -88,18 +88,19 @@ export default function FromPrototypeToProduction() {
 
       {/* ─── HERO ─── */}
       <section id="top" className="relative isolate overflow-hidden pt-16">
-        {/* Atmospheric workspace photo */}
+        {/* Atmospheric workspace photo — uniformly visible across the hero */}
         <div
-          className="absolute inset-0 -z-20 bg-cover bg-center opacity-25"
+          className="absolute inset-0 -z-20 bg-cover bg-center"
           style={{
             backgroundImage:
-              "url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=70')",
+              "url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')",
           }}
         />
-        {/* Strong dark gradient overlay to keep text readable */}
-        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-background via-background/85 to-background/70" />
-        <div className="absolute inset-0 -z-10 bg-hero-mesh opacity-90" />
-        <div className="absolute inset-0 -z-10 bg-dot-grid opacity-[0.35]" />
+        {/* Uniform ~55% darkening — photo stays visible, text stays readable */}
+        <div className="absolute inset-0 -z-10 bg-background/55" />
+        {/* Blue accent glow */}
+        <div className="absolute inset-0 -z-10 bg-[radial-gradient(60%_60%_at_75%_50%,rgba(59,130,246,0.22)_0%,transparent_70%)]" />
+        {/* Bottom fade into next section */}
         <div className="absolute inset-x-0 bottom-0 -z-10 h-32 bg-gradient-to-t from-background to-transparent" />
 
         <Container className="relative">

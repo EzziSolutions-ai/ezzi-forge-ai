@@ -34,19 +34,21 @@ const reversals = [
 export default function GuaranteeBlock() {
   return (
     <section className="relative overflow-hidden py-24 md:py-32">
-      {/* Background — minimal modern workspace photo, heavily darkened */}
+      {/* Background — modern architecture photo, photo CLEARLY visible */}
       <div
-        className="absolute inset-0 -z-20 bg-cover bg-center opacity-25"
+        className="absolute inset-0 -z-20 bg-cover bg-center"
         style={{
           backgroundImage:
-            "url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=70')",
+            "url('https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')",
         }}
       />
-      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-background via-background/85 to-background/70" />
-      <div className="absolute inset-0 -z-10 bg-hero-mesh opacity-80" />
-      <div className="absolute inset-0 -z-10 bg-dot-grid opacity-30" />
-      <div className="absolute inset-x-0 top-0 -z-10 h-32 bg-gradient-to-b from-background to-transparent" />
-      <div className="absolute inset-x-0 bottom-0 -z-10 h-32 bg-gradient-to-t from-background to-transparent" />
+      {/* Light dark veil — enough for type readability, lets photo come through */}
+      <div className="absolute inset-0 -z-10 bg-background/55" />
+      {/* Blue accent glow over the photo */}
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(70%_60%_at_30%_50%,rgba(59,130,246,0.28)_0%,transparent_70%)]" />
+      {/* Top/bottom fade so the photo bleeds into adjacent sections */}
+      <div className="absolute inset-x-0 top-0 -z-10 h-24 bg-gradient-to-b from-background to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 -z-10 h-24 bg-gradient-to-t from-background to-transparent" />
 
       <Container>
         {/* The Big Promise */}
