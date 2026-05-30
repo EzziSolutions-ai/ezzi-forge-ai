@@ -5,6 +5,9 @@
  * Usage:  <HeroIllustration variant="home" className="..." />
  */
 
+import type { ReactElement } from "react";
+
+
 export type HeroVariant =
   | "home"
   | "services"
@@ -27,7 +30,7 @@ export default function HeroIllustration({
   variant: HeroVariant;
   className?: string;
 }) {
-  const map: Record<HeroVariant, () => JSX.Element> = {
+  const map: Record<HeroVariant, () => ReactElement> = {
     home: HomeArt,
     services: ServicesArt,
     "case-studies": CaseStudiesArt,
