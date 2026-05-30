@@ -34,9 +34,17 @@ const reversals = [
 export default function GuaranteeBlock() {
   return (
     <section className="relative overflow-hidden py-24 md:py-32">
-      {/* Background */}
-      <div className="absolute inset-0 -z-10 bg-hero-mesh opacity-90" />
-      <div className="absolute inset-0 -z-10 bg-dot-grid opacity-40" />
+      {/* Background — minimal modern workspace photo, heavily darkened */}
+      <div
+        className="absolute inset-0 -z-20 bg-cover bg-center opacity-25"
+        style={{
+          backgroundImage:
+            "url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=70')",
+        }}
+      />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-background via-background/85 to-background/70" />
+      <div className="absolute inset-0 -z-10 bg-hero-mesh opacity-80" />
+      <div className="absolute inset-0 -z-10 bg-dot-grid opacity-30" />
       <div className="absolute inset-x-0 top-0 -z-10 h-32 bg-gradient-to-b from-background to-transparent" />
       <div className="absolute inset-x-0 bottom-0 -z-10 h-32 bg-gradient-to-t from-background to-transparent" />
 

@@ -88,8 +88,18 @@ export default function FromPrototypeToProduction() {
 
       {/* ─── HERO ─── */}
       <section id="top" className="relative isolate overflow-hidden pt-16">
-        <div className="absolute inset-0 -z-10 bg-hero-mesh" />
-        <div className="absolute inset-0 -z-10 bg-dot-grid opacity-[0.5]" />
+        {/* Atmospheric workspace photo */}
+        <div
+          className="absolute inset-0 -z-20 bg-cover bg-center opacity-25"
+          style={{
+            backgroundImage:
+              "url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=70')",
+          }}
+        />
+        {/* Strong dark gradient overlay to keep text readable */}
+        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-background via-background/85 to-background/70" />
+        <div className="absolute inset-0 -z-10 bg-hero-mesh opacity-90" />
+        <div className="absolute inset-0 -z-10 bg-dot-grid opacity-[0.35]" />
         <div className="absolute inset-x-0 bottom-0 -z-10 h-32 bg-gradient-to-t from-background to-transparent" />
 
         <Container className="relative">
@@ -215,7 +225,8 @@ export default function FromPrototypeToProduction() {
       {/* ─── PROBLEM (Light) ─── */}
       <PainStrip />
 
-      {/* ─── HOW IT WORKS ─── */}
+      {/* ─── HOW IT WORKS (LIGHT) ─── */}
+      <LightSection>
       <section id="how" className="relative scroll-mt-24 py-24 md:py-32">
         <Container>
           <div className="mb-14 max-w-2xl">
@@ -296,6 +307,7 @@ export default function FromPrototypeToProduction() {
           </motion.div>
         </Container>
       </section>
+      </LightSection>
 
       {/* ─── COMPARISON (Light) ─── */}
       <ComparisonTable />
@@ -354,7 +366,8 @@ export default function FromPrototypeToProduction() {
         </section>
       </LightSection>
 
-      {/* ─── FAQ ─── */}
+      {/* ─── FAQ (LIGHT) ─── */}
+      <LightSection>
       <section id="faq" className="relative scroll-mt-24 py-24 md:py-32">
         <Container>
           <div className="mb-14 max-w-2xl">
@@ -412,6 +425,7 @@ export default function FromPrototypeToProduction() {
           </div>
         </Container>
       </section>
+      </LightSection>
 
       {/* ─── QUOTE FORM ─── */}
       <PrototypeQuoteForm />
