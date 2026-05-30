@@ -27,7 +27,7 @@ export default function HeroIllustration({
   variant: HeroVariant;
   className?: string;
 }) {
-  const map: Record<HeroVariant, () => JSX.Element> = {
+  const map: Record<HeroVariant, () => React.ReactElement> = {
     home: HomeArt,
     services: ServicesArt,
     "case-studies": CaseStudiesArt,
