@@ -21,6 +21,7 @@ export type HeroVariant =
   | "partners"
   | "testimonials"
   | "blog"
+  | "stuck-prototype"
   | "generic";
 
 export default function HeroIllustration({
@@ -44,6 +45,7 @@ export default function HeroIllustration({
     testimonials: TestimonialsArt,
     blog: BlogArt,
     generic: GenericArt,
+    "stuck-prototype": StuckPrototypeArt,
   };
   const Comp = map[variant] ?? GenericArt;
   return (
@@ -545,6 +547,119 @@ function BlogArt() {
         {/* Read more */}
         <rect x="20" y="330" width="110" height="20" rx="10" fill="rgb(10 10 10)" stroke="rgb(59 130 246 / 0.5)" />
         <text x="32" y="343" fontFamily="JetBrains Mono, monospace" fontSize="9" letterSpacing="1" fill="rgb(161 161 170)">READ MORE →</text>
+      </g>
+    </svg>
+  );
+}
+
+
+// ─── STUCK PROTOTYPE — Broken UI on the left → production UI on the right ─
+
+function StuckPrototypeArt() {
+  return (
+    <svg viewBox="0 0 720 540" xmlns="http://www.w3.org/2000/svg" className="h-full w-full">
+      <Defs id="sp" />
+      <rect width="720" height="540" fill="url(#sp-dots)" />
+      <circle cx="540" cy="270" r="240" fill="url(#sp-glow)" />
+
+      {/* LEFT: Broken prototype */}
+      <g transform="translate(40 110)">
+        <rect width="260" height="320" rx="12" fill="url(#sp-fill)" stroke="rgb(239 68 68 / 0.55)" strokeWidth="1.5" strokeDasharray="6 4" />
+        {/* Tag */}
+        <g transform="translate(16 14)">
+          <rect width="78" height="22" rx="11" fill="rgb(239 68 68 / 0.15)" stroke="rgb(239 68 68 / 0.5)" strokeWidth="1" />
+          <text x="11" y="15" fontFamily="JetBrains Mono, monospace" fontSize="9" letterSpacing="2" fill="rgb(248 113 113)">PROTOTYPE</text>
+        </g>
+        {/* Broken header */}
+        <rect x="16" y="50" width="100" height="6" rx="2" fill="rgb(75 75 75)" />
+        <rect x="16" y="64" width="220" height="4" rx="2" fill="rgb(40 40 40)" />
+        {/* Half-built cards */}
+        <rect x="16" y="88" width="100" height="80" rx="6" fill="rgb(15 15 15)" stroke="rgb(31 31 31)" />
+        <rect x="22" y="100" width="40" height="4" rx="2" fill="rgb(59 130 246 / 0.5)" />
+        <rect x="22" y="112" width="60" height="3" rx="1.5" fill="rgb(40 40 40)" />
+        <rect x="22" y="120" width="50" height="3" rx="1.5" fill="rgb(40 40 40)" />
+        {/* Broken card (jagged edges) */}
+        <g transform="translate(128 88)">
+          <path d="M 0 0 L 100 0 L 100 30 L 92 38 L 100 46 L 92 54 L 100 62 L 100 80 L 0 80 Z" fill="rgb(15 15 15)" stroke="rgb(239 68 68 / 0.6)" strokeWidth="1" strokeDasharray="3 3" />
+          {/* Error icon */}
+          <circle cx="50" cy="40" r="14" fill="rgb(239 68 68 / 0.15)" stroke="rgb(239 68 68)" strokeWidth="1.5" />
+          <text x="50" y="46" textAnchor="middle" fontFamily="Geist, sans-serif" fontWeight="700" fontSize="18" fill="rgb(239 68 68)">!</text>
+        </g>
+        {/* Stuck progress bar */}
+        <g transform="translate(16 188)">
+          <text x="0" y="0" fontFamily="JetBrains Mono, monospace" fontSize="9" letterSpacing="2" fill="rgb(113 113 122)">BUILD · STUCK AT 60%</text>
+          <rect x="0" y="10" width="228" height="8" rx="4" fill="rgb(15 15 15)" stroke="rgb(31 31 31)" />
+          <rect x="0" y="10" width="137" height="8" rx="4" fill="rgb(239 68 68 / 0.6)" />
+          <line x1="137" y1="6" x2="137" y2="22" stroke="rgb(239 68 68)" strokeWidth="1.5" />
+        </g>
+        {/* Error log */}
+        <g transform="translate(16 222)">
+          <rect width="228" height="80" rx="6" fill="rgb(8 8 8)" stroke="rgb(31 31 31)" />
+          <text x="10" y="18" fontFamily="JetBrains Mono, monospace" fontSize="8" fill="rgb(239 68 68)">ERR · auth.users undefined</text>
+          <text x="10" y="34" fontFamily="JetBrains Mono, monospace" fontSize="8" fill="rgb(239 68 68 / 0.8)">ERR · stripe webhook 500</text>
+          <text x="10" y="50" fontFamily="JetBrains Mono, monospace" fontSize="8" fill="rgb(239 68 68 / 0.6)">ERR · db migration failed</text>
+          <text x="10" y="66" fontFamily="JetBrains Mono, monospace" fontSize="8" fill="rgb(113 113 122)">… 47 more</text>
+        </g>
+      </g>
+
+      {/* Arrow / bridge */}
+      <g transform="translate(310 250)">
+        <line x1="0" y1="20" x2="80" y2="20" stroke="rgb(59 130 246)" strokeWidth="2" strokeDasharray="4 4">
+          <animate attributeName="stroke-dashoffset" values="0;-8" dur="0.8s" repeatCount="indefinite" />
+        </line>
+        <path d="M 76 14 L 86 20 L 76 26" stroke="rgb(59 130 246)" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+        <text x="42" y="0" textAnchor="middle" fontFamily="JetBrains Mono, monospace" fontSize="9" letterSpacing="2" fill="rgb(96 165 250)">EZZI</text>
+        <text x="42" y="48" textAnchor="middle" fontFamily="JetBrains Mono, monospace" fontSize="9" letterSpacing="2" fill="rgb(96 165 250)">60 DAYS</text>
+      </g>
+
+      {/* RIGHT: Production-ready */}
+      <g transform="translate(410 110)">
+        <rect width="260" height="320" rx="12" fill="url(#sp-fill)" stroke="rgb(59 130 246 / 0.8)" strokeWidth="1.5" />
+        {/* Tag */}
+        <g transform="translate(16 14)">
+          <rect width="92" height="22" rx="11" fill="rgb(59 130 246 / 0.15)" stroke="rgb(59 130 246 / 0.6)" strokeWidth="1" />
+          <circle cx="12" cy="11" r="3" fill="rgb(34 197 94)" />
+          <text x="22" y="15" fontFamily="JetBrains Mono, monospace" fontSize="9" letterSpacing="2" fill="rgb(96 165 250)">PRODUCTION</text>
+        </g>
+        {/* Header */}
+        <rect x="16" y="50" width="100" height="6" rx="2" fill="rgb(59 130 246)" />
+        <rect x="16" y="64" width="220" height="4" rx="2" fill="rgb(75 75 75)" />
+        <rect x="16" y="74" width="180" height="4" rx="2" fill="rgb(75 75 75)" />
+        {/* Stat tiles */}
+        <g transform="translate(16 96)">
+          <rect width="105" height="48" rx="6" fill="rgb(15 15 15)" stroke="rgb(59 130 246 / 0.3)" />
+          <text x="10" y="18" fontFamily="JetBrains Mono, monospace" fontSize="8" letterSpacing="2" fill="rgb(113 113 122)">UPTIME</text>
+          <text x="10" y="38" fontFamily="Geist, sans-serif" fontWeight="600" fontSize="18" fill="rgb(250 250 250)">99.97%</text>
+        </g>
+        <g transform="translate(135 96)">
+          <rect width="105" height="48" rx="6" fill="rgb(15 15 15)" stroke="rgb(59 130 246 / 0.3)" />
+          <text x="10" y="18" fontFamily="JetBrains Mono, monospace" fontSize="8" letterSpacing="2" fill="rgb(113 113 122)">TESTS</text>
+          <text x="10" y="38" fontFamily="Geist, sans-serif" fontWeight="600" fontSize="18" fill="rgb(96 165 250)">PASSING</text>
+        </g>
+        {/* Chart */}
+        <g transform="translate(16 160)">
+          <rect width="224" height="80" rx="6" fill="rgb(10 10 10)" stroke="rgb(31 31 31)" />
+          <text x="10" y="18" fontFamily="JetBrains Mono, monospace" fontSize="8" letterSpacing="2" fill="rgb(113 113 122)">TRAFFIC · LIVE</text>
+          <path d="M 12 60 L 40 50 L 65 56 L 90 42 L 115 46 L 140 30 L 170 36 L 200 20 L 214 24" stroke="rgb(59 130 246)" strokeWidth="1.8" fill="none" strokeLinecap="round" />
+          <circle cx="214" cy="24" r="3" fill="rgb(59 130 246)">
+            <animate attributeName="r" values="3;5;3" dur="2s" repeatCount="indefinite" />
+          </circle>
+        </g>
+        {/* Status pills */}
+        <g transform="translate(16 252)">
+          <rect width="105" height="22" rx="11" fill="rgb(34 197 94 / 0.12)" stroke="rgb(34 197 94 / 0.45)" />
+          <circle cx="12" cy="11" r="3" fill="rgb(34 197 94)" />
+          <text x="22" y="15" fontFamily="JetBrains Mono, monospace" fontSize="9" letterSpacing="2" fill="rgb(34 197 94)">DEPLOYED</text>
+        </g>
+        <g transform="translate(135 252)">
+          <rect width="105" height="22" rx="11" fill="rgb(59 130 246 / 0.12)" stroke="rgb(59 130 246 / 0.45)" />
+          <text x="12" y="15" fontFamily="JetBrains Mono, monospace" fontSize="9" letterSpacing="2" fill="rgb(96 165 250)">CODE · YOURS</text>
+        </g>
+        {/* Bottom stat */}
+        <g transform="translate(16 284)">
+          <text x="0" y="12" fontFamily="JetBrains Mono, monospace" fontSize="9" letterSpacing="2" fill="rgb(113 113 122)">SHIPPED · 47 DAYS</text>
+          <text x="224" y="12" textAnchor="end" fontFamily="JetBrains Mono, monospace" fontSize="9" letterSpacing="2" fill="rgb(34 197 94)">ON TIME ✓</text>
+        </g>
       </g>
     </svg>
   );

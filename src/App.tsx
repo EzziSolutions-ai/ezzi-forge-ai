@@ -28,6 +28,7 @@ import FAQ from "@/pages/FAQ";
 import Privacy from "@/pages/Privacy";
 import Terms from "@/pages/Terms";
 import NotFound from "@/pages/NotFound";
+import FromPrototypeToProduction from "@/pages/FromPrototypeToProduction";
 
 const queryClient = new QueryClient();
 
@@ -39,6 +40,9 @@ export default function App() {
           <TooltipProvider>
             <BrowserRouter>
               <Routes>
+                {/* Standalone landing page — its own nav, reuses Footer */}
+                <Route path="/from-prototype-to-production" element={<FromPrototypeToProduction />} />
+
                 <Route element={<Layout />}>
                   <Route path="/" element={<Home />} />
                   <Route path="/services" element={<Services />} />
