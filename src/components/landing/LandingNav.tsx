@@ -81,21 +81,11 @@ export default function LandingNav() {
           aria-label="Ezzi Solutions AI — Home"
         >
           <img
-            src="/logo-cube.png"
-            alt=""
-            width="32"
-            height="32"
-            className="h-7 w-7 select-none transition-transform duration-300 group-hover:scale-[1.04]"
+            src="/logo-full-dark.png"
+            alt="Ezzi Solutions AI — A Henagon Company"
+            className="h-7 w-auto select-none transition-transform duration-300 group-hover:scale-[1.03]"
             draggable={false}
           />
-          <span className="flex flex-col leading-none">
-            <span className="text-[13px] font-semibold tracking-tight text-foreground">
-              Ezzi Solutions AI
-            </span>
-            <span className="mt-1 font-mono text-[8.5px] uppercase tracking-[0.22em] text-muted-2">
-              A Henagon Company
-            </span>
-          </span>
         </Link>
 
         {/* Bookmark chips — desktop centered, mobile horizontal scroll */}

@@ -43,21 +43,11 @@ export default function Footer() {
               aria-label="Ezzi Solutions AI — Home"
             >
               <img
-                src="/logo-cube.png"
-                alt=""
-                width="48"
-                height="48"
-                className="h-10 w-10 select-none transition-transform duration-300 group-hover:scale-[1.04]"
+                src="/logo-full-dark.png"
+                alt="Ezzi Solutions AI — A Henagon Company"
+                className="h-9 w-auto select-none transition-transform duration-300 group-hover:scale-[1.03]"
                 draggable={false}
               />
-              <span className="flex flex-col leading-none">
-                <span className="text-base font-semibold tracking-tight text-foreground">
-                  Ezzi Solutions AI
-                </span>
-                <span className="mt-1.5 font-mono text-[9.5px] uppercase tracking-[0.22em] text-muted-2">
-                  A Henagon Company
-                </span>
-              </span>
             </Link>
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-muted-foreground">
               Custom software & apps — built with AI, launched in weeks.
