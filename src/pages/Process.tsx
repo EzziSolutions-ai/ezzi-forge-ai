@@ -135,7 +135,7 @@ export default function Process() {
         <title>Process: How we ship in 60 days | Ezzi Solutions AI</title>
         <meta
           name="description"
-          content="Six phases. Eight weeks. The exact workflow that gets production apps live in under 60 days — what you get at each step, the tools we use, and how AI compresses the cycle."
+          content="Six phases. Eight weeks. The exact workflow that gets production apps live in under 60 days: what you get at each step, the tools we use, and how AI compresses the cycle."
         />
       </Helmet>
 
