@@ -10,7 +10,7 @@ export default function PlaceholderPage({
   title: string;
   pageTitle?: string;
 }) {
-  const t = pageTitle ?? `${title} — Ezzi Solutions AI`;
+  const t = pageTitle ?? `${{title}}: Ezzi Solutions AI`;
   return (
     <>
       <Helmet>
