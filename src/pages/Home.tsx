@@ -88,7 +88,7 @@ export default function Home() {
               variants={item}
               className="text-h1 max-w-5xl text-balance text-foreground"
             >
-              Custom software & apps:{{" "}}
+              Custom software & apps:{" "}
               <span className="relative inline-block text-accent">
                 built with AI
                 <svg

@@ -205,7 +205,7 @@ export default function CaseStudies() {
           {filtered.length === 0 && (
             <div className="rounded-2xl border border-border bg-surface p-12 text-center">
               <p className="text-base text-muted-foreground">
-                No case studies in this industry yet:{{" "}}
+                No case studies in this industry yet:{" "}
                 <button
                   type="button"
                   onClick={() => onFilter("All")}
