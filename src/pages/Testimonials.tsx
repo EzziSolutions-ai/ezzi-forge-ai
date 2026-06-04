@@ -42,7 +42,7 @@ const testimonials = [
     industry: "Field Services",
   },
   {
-    quote: "Time per proposal went from ten hours to thirty minutes. We bid four times as much work, and our win-rate went up — not down.",
+    quote: "Time per proposal went from ten hours to thirty minutes. We bid four times as much work, and our win-rate went up, not down.",
     name: "Managing Partner",
     role: "Professional services firm",
     project: "BidMind AI",
@@ -61,7 +61,7 @@ export default function Testimonials() {
   return (
     <>
       <Helmet>
-        <title>Testimonials — Ezzi Solutions AI</title>
+        <title>Testimonials | Ezzi Solutions AI</title>
         <meta name="description" content="What founders and operators say about working with Ezzi Solutions AI. Real quotes from real projects across healthcare, sales, manufacturing, and field services." />
       </Helmet>
 
@@ -88,7 +88,7 @@ export default function Testimonials() {
             </h1>
             <p className="mt-7 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
               Real quotes from operators and founders who put their names on
-              real systems. Sorted by project — each one links to the case study.
+              real systems. Sorted by project; each one links to the case study.
             </p>
           
             </div>

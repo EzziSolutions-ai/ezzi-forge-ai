@@ -127,7 +127,7 @@ export default function ComparisonTable() {
               <span className="text-muted-foreground">vs Ezzi.</span>
             </h2>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
-              The two ways people have tried to build software — and the third way that
+              The two ways people have tried to build software, and the third way that
               actually ships.
             </p>
           </div>

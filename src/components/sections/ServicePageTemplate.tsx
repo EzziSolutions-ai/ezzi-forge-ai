@@ -16,7 +16,7 @@ export default function ServicePageTemplate({ service }: { service: Service }) {
   return (
     <>
       <Helmet>
-        <title>{`${service.label} — Ezzi Solutions AI`}</title>
+        <title>{`${service.label} | Ezzi Solutions AI`}</title>
         <meta name="description" content={service.tagline} />
       </Helmet>
 
@@ -228,7 +228,7 @@ export default function ServicePageTemplate({ service }: { service: Service }) {
               Pricing
             </div>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
-              Quotes are scoped to your specific build — most {service.label.toLowerCase()} engagements
+              Quotes are scoped to your specific build. Most {service.label.toLowerCase()} engagements
               run between $15K and $80K. You&apos;ll receive a written quote in 48 hours.
             </p>
             <Link
@@ -297,7 +297,7 @@ export default function ServicePageTemplate({ service }: { service: Service }) {
               Building a {service.label.toLowerCase()} project?
             </h2>
             <p className="mt-6 text-base leading-relaxed text-muted-foreground md:text-lg">
-              Send the rough idea — we&apos;ll send back a written plan, a written quote,
+              Send us the rough idea. We&apos;ll send back a written plan, a written quote,
               and a timeline you can hold us to.
             </p>
             <Link

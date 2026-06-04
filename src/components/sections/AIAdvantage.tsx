@@ -47,9 +47,7 @@ export default function AIAdvantage() {
           </div>
           <div className="md:col-span-7 md:pt-14">
             <p className="max-w-xl text-base leading-relaxed text-muted-foreground">
-              It's not magic. AI compresses four specific phases of the build cycle —
-              and we re-invest the time saved into design, testing, and your
-              specific business logic.
+              AI compresses four specific phases of the build cycle, and we re-invest the time saved into design, testing, and your specific business logic.
             </p>
           </div>
         </div>

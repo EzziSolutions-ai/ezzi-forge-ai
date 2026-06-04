@@ -16,7 +16,7 @@ export default function Blog() {
   return (
     <>
       <Helmet>
-        <title>Insights — Ezzi Solutions AI</title>
+        <title>Insights | Ezzi Solutions AI</title>
         <meta name="description" content="Lessons from shipping AI-powered software for startups and SMBs. Process notes, case-study deep-dives, opinions on the craft." />
       </Helmet>
 
@@ -71,7 +71,7 @@ export default function Blog() {
                   </h2>
                   <p className="mt-5 max-w-md text-base leading-relaxed text-muted-foreground md:text-lg">
                     We&apos;d rather publish one essay worth reading than ten that aren&apos;t.
-                    The first cohort lands shortly — drop your email and we&apos;ll send it.
+                    The first cohort lands shortly. Drop your email and we&apos;ll send it.
                   </p>
                 </div>
                 <div className="md:col-span-7">

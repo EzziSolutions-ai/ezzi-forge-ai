@@ -13,14 +13,14 @@ const quotes = [
   {
     quote:
       "We were quoted six months by two other shops. Ezzi shipped it in 52 days, on the price, and the code is cleaner than what our in-house team writes.",
-    name: "Operator quote — placeholder",
+    name: "Operator quote (placeholder)",
     role: "VP Engineering · Healthcare SaaS",
     project: "CareFlow",
   },
   {
     quote:
       "They built a sales platform we now use to close every deal. Less than half the cost we were getting from agencies, and they actually used AI in the build.",
-    name: "Founder quote — placeholder",
+    name: "Founder quote (placeholder)",
     role: "CEO · B2B SaaS startup",
     project: "OutreachOS",
   },

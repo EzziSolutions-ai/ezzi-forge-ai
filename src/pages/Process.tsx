@@ -25,7 +25,7 @@ const phases = [
   {
     weeks: "Week 2",
     label: "Design",
-    headline: "Interfaces and data model — in parallel.",
+    headline: "Interfaces and data model, in parallel.",
     body:
       "We design what we'll build, not what looks good in a portfolio. UI mocks for every primary flow plus the data model that backs them. Senior designer + senior engineer working together so nothing drifts between visual and structural design.",
     deliverables: [
@@ -40,7 +40,7 @@ const phases = [
     label: "Build with AI",
     headline: "Daily builds, weekly demos, no surprises at the end.",
     body:
-      "Senior engineers pair with AI on every commit — scoping, generation, code review, test stubs, documentation. You see a working demo every Friday. Bugs are caught at the commit, not the launch.",
+      "Senior engineers pair with AI on every commit: scoping, generation, code review, test stubs, documentation. You see a working demo every Friday. Bugs are caught at the commit, not the launch.",
     deliverables: [
       "Daily builds pushed to a private staging URL",
       "Weekly Friday demo (15 minutes, no slides)",
@@ -66,7 +66,7 @@ const phases = [
     label: "Launch & handoff",
     headline: "You own the code, the keys, the docs. Day one.",
     body:
-      "Production deployment, monitoring, alerting, and a real handoff. We don't disappear into a retainer — we make sure you can run, iterate, and extend the system without us by week 9.",
+      "Production deployment, monitoring, alerting, and a real handoff. We don't disappear into a retainer. We make sure you can run, iterate, and extend the system without us by week 9.",
     deliverables: [
       "Production deployment with monitoring & alerts",
       "Operator runbook (incidents, rollbacks, scaling)",
@@ -79,7 +79,7 @@ const phases = [
     label: "Support window",
     headline: "Hypercare without the lock-in retainer.",
     body:
-      "Thirty days of free post-launch support — bug fixes, small adjustments, the inevitable 'one more thing' from the field. After day 30, you decide: hire us for ongoing work, hire someone else, or run it yourself. No subscription auto-renew.",
+      "Thirty days of free post-launch support: bug fixes, small adjustments, the inevitable 'one more thing' from the field. After day 30, you decide: hire us for ongoing work, hire someone else, or run it yourself. No subscription auto-renew.",
     deliverables: [
       "Same-day response on production issues",
       "Free small adjustments + bug fixes",
@@ -132,10 +132,10 @@ export default function Process() {
   return (
     <>
       <Helmet>
-        <title>Process — How we ship in 60 days · Ezzi Solutions AI</title>
+        <title>Process: How we ship in 60 days | Ezzi Solutions AI</title>
         <meta
           name="description"
-          content="Six phases. Eight weeks. The exact workflow that gets production apps live in under 60 days — what you get at each step, the tools we use, and how AI compresses the cycle."
+          content="Six phases. Eight weeks. The exact workflow that gets production apps live in under 60 days: what you get at each step, the tools we use, and how AI compresses the cycle."
         />
       </Helmet>
 
@@ -164,7 +164,7 @@ export default function Process() {
 
             <p className="mt-7 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
               Six phases. Eight weeks. Every project we&apos;ve shipped has hit
-              this timeline — not because we&apos;re lucky, because the workflow
+              this timeline. Not because we&apos;re lucky, but because the workflow
               is built around it.
             </p>
           
@@ -205,7 +205,7 @@ export default function Process() {
                 <div key={d.week} className="flex flex-col gap-2">
                   <div
                     className={`h-12 rounded-md ${phaseColor[d.phase as keyof typeof phaseColor]}`}
-                    title={`${d.week} — ${d.phase}`}
+                    title={`${d.week}: ${d.phase}`}
                   />
                   <div className="text-center font-mono text-[9px] uppercase tracking-[0.16em] text-muted-2">
                     {d.week}
@@ -236,8 +236,8 @@ export default function Process() {
               The six phases
             </div>
             <h2 className="text-h2 mt-5 text-foreground text-balance">
-              What happens —{" "}
-              <span className="text-muted-foreground">and what you get — at each step.</span>
+              What happens{" "}
+              <span className="text-muted-foreground">and what you get at each step.</span>
             </h2>
           </div>
 
@@ -312,7 +312,7 @@ export default function Process() {
             </div>
             <div className="md:col-span-7 md:pt-14">
               <p className="max-w-xl text-base leading-relaxed text-muted-foreground">
-                We don&apos;t chase frameworks. We use the tools that ship — and we use them
+                We don&apos;t chase frameworks. We use the tools that ship, and we use them
                 consistently across every project so your team can take over the codebase
                 without learning a custom stack.
               </p>

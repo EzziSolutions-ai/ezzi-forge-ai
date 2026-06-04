@@ -115,7 +115,7 @@ export default function Pricing() {
   return (
     <>
       <Helmet>
-        <title>Pricing & Packages — Ezzi Solutions AI</title>
+        <title>Pricing & Packages | Ezzi Solutions AI</title>
         <meta
           name="description"
           content="Quote-based pricing for AI-powered software & app development. Most quotes returned within 48 hours."
@@ -146,7 +146,7 @@ export default function Pricing() {
             </h1>
 
             <p className="mt-7 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
-              Every project is quote-based — we&apos;d rather price the work, not your
+              Every project is quote-based. We&apos;d rather price the work, not your
               wallet. Tell us what you&apos;re building, and you&apos;ll have a written
               quote in 48 hours.
             </p>
@@ -253,7 +253,7 @@ export default function Pricing() {
               How we work together
             </div>
             <h2 className="text-h2 mt-5 text-foreground text-balance">
-              Three engagement models —{" "}
+              Three engagement models:{" "}
               <span className="text-muted-foreground">pick what fits the project.</span>
             </h2>
           </div>
@@ -309,7 +309,7 @@ export default function Pricing() {
               </h2>
               <p className="mt-6 max-w-md text-base leading-relaxed text-muted-foreground">
                 We&apos;ll either return a written quote, suggest a different scope that
-                fits your budget, or — if we&apos;re not the right fit — point you to
+                fits your budget, or (if we&apos;re not the right fit) point you to
                 someone who is.
               </p>
 
@@ -324,7 +324,7 @@ export default function Pricing() {
                 </li>
                 <li className="flex items-center gap-3">
                   <span className="h-1 w-1 rounded-full bg-accent" />
-                  No hard sell — we book ~1 in 3 projects we&apos;re asked about
+                  No hard sell: we book ~1 in 3 projects we&apos;re asked about
                 </li>
               </ul>
             </div>
@@ -408,7 +408,7 @@ export default function Pricing() {
                     <Check className="h-5 w-5 text-accent" strokeWidth={2.5} />
                   </div>
                   <h3 className="mt-6 text-2xl font-semibold tracking-tight text-foreground">
-                    Got it — quote incoming.
+                    Got it. Quote incoming.
                   </h3>
                   <p className="mt-3 max-w-md text-sm leading-relaxed text-muted-foreground">
                     You&apos;ll hear from a senior engineer within 48 hours. If it&apos;s

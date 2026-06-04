@@ -13,7 +13,7 @@ const values = [
   {
     label: "Ship fast",
     body:
-      "Software gets built faster than ever. We pass that compression through — to you, to your investors, to your customers.",
+      "Software gets built faster than ever. We pass that compression through: to you, to your investors, to your customers.",
   },
   {
     label: "Build to last",
@@ -54,7 +54,7 @@ export default function About() {
   return (
     <>
       <Helmet>
-        <title>About — Ezzi Solutions AI</title>
+        <title>About | Ezzi Solutions AI</title>
         <meta
           name="description"
           content="A small senior team building software the AI-first way. Part of Henagon. Custom software & apps, launched in weeks."
@@ -83,7 +83,7 @@ export default function About() {
               <span className="text-muted-foreground">building software the AI-first way.</span>
             </h1>
             <p className="mt-7 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
-              We&apos;re Ezzi Solutions AI — part of Henagon. We build production software
+              We&apos;re Ezzi Solutions AI, part of Henagon. We build production software
               for startups and SMBs in eight weeks, using AI to compress the parts of the
               cycle that don&apos;t need a human, and senior engineers on the parts that do.
             </p>
@@ -118,7 +118,7 @@ export default function About() {
               </p>
               <p>
                 Meanwhile, founders raise smaller rounds and SMB owners run leaner. The
-                math stopped working a long time ago — but the agencies didn&apos;t change.
+                math stopped working a long time ago, but the agencies didn&apos;t change.
               </p>
               <p>
                 Ezzi was built for the world that&apos;s here: AI doing the compression,
@@ -186,7 +186,7 @@ export default function About() {
             <div className="md:col-span-7 md:pt-14">
               <p className="max-w-xl text-base leading-relaxed text-muted-foreground">
                 We stay deliberately small. Every project gets senior engineers and a
-                senior designer — not a junior army with a senior reviewer on top.
+                senior designer, not a junior army with a senior reviewer on top.
                 AI is what makes this possible.
               </p>
             </div>
@@ -253,8 +253,8 @@ export default function About() {
               Want to work with us?
             </h2>
             <p className="mt-6 text-base leading-relaxed text-muted-foreground md:text-lg">
-              Either you have a project — in which case, hello. Or you want to join the
-              team — in which case, also hello.
+              Either you have a project (in which case, hello). Or you want to join the
+              team (in which case, also hello).
             </p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
               <Link

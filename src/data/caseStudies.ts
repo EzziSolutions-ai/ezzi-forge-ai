@@ -59,7 +59,7 @@ export const caseStudies: CaseStudy[] = [
     name: "CareFlow",
     tagline: "Voice-driven patient operations.",
     blurb:
-      "Spoken updates from caregivers turn into structured patient records, downstream workflows, and exception alerts — without anyone opening a form.",
+      "Spoken updates from caregivers turn into structured patient records, downstream workflows, and exception alerts, without anyone opening a form.",
     tags: ["Voice AI", "Patient records", "Workflow automation"],
     timeline: "10 weeks",
     stack: ["React Native", "Node.js", "PostgreSQL", "Whisper", "OpenAI", "HIPAA infra"],
@@ -94,17 +94,17 @@ export const caseStudies: CaseStudy[] = [
     name: "OutreachOS",
     tagline: "Outbound that doesn't read like outbound.",
     blurb:
-      "Multi-channel sequencing, AI personalization, and pipeline analytics in one workspace — replacing four disconnected tools for a sales-led startup.",
+      "Multi-channel sequencing, AI personalization, and pipeline analytics in one workspace, replacing four disconnected tools for a sales-led startup.",
     tags: ["Multi-channel", "AI personalization", "Pipeline analytics"],
     timeline: "12 weeks",
     stack: ["Next.js", "tRPC", "Postgres", "Redis", "GPT-4o", "SendGrid", "Twilio"],
     challenge:
-      "The founder was running outbound across email, LinkedIn, SMS, and calls — through four separate tools that never agreed on who had touched a prospect. Half the team's time went to reconciling spreadsheets; the personalization that drove replies didn't survive scale.",
+      "The founder was running outbound across email, LinkedIn, SMS, and calls through four separate tools that never agreed on who had touched a prospect. Half the team's time went to reconciling spreadsheets; the personalization that drove replies didn't survive scale.",
     solution:
       "OutreachOS pulls every channel into one workspace, with AI-drafted personalization grounded in the prospect's actual public footprint (not generic 'I noticed your role'). Reps approve, edit, or skip. Pipeline metrics reflect what each touch did, not just that it happened.",
     features: [
       "Multi-channel sequences (email, LinkedIn, SMS, calls)",
-      "AI personalization grounded in real public signal — not noise",
+      "AI personalization grounded in real public signal, not noise",
       "Per-step pipeline analytics (open → reply → meeting → won)",
       "Auto-pause on negative signals (bounce, opt-out, recent purchase)",
       "Native integrations: Salesforce, HubSpot, Apollo, Clay",
@@ -129,12 +129,12 @@ export const caseStudies: CaseStudy[] = [
     name: "BidMind AI",
     tagline: "Proposals priced in minutes, not days.",
     blurb:
-      "AI drafts, prices, and tailors bids from reusable templates and intelligent pricing — turning a week of proposal work into an afternoon.",
+      "AI drafts, prices, and tailors bids from reusable templates and intelligent pricing, turning a week of proposal work into an afternoon.",
     tags: ["AI drafting", "Smart pricing", "Templates"],
     timeline: "14 weeks",
     stack: ["Next.js", "Postgres", "OpenAI", "Stripe", "Resend", "Vercel"],
     challenge:
-      "A professional-services firm was losing deals on response time. Each proposal was a hand-assembled mix of past wins, pricing models, and scope variants — taking 8–12 hours per bid, with senior consultants doing junior work.",
+      "A professional-services firm was losing deals on response time. Each proposal was a hand-assembled mix of past wins, pricing models, and scope variants, taking 8–12 hours per bid, with senior consultants doing junior work.",
     solution:
       "BidMind AI reads the brief, pulls relevant content blocks from past proposals, applies your pricing model with sensitivity bands, and produces a draft ready for senior review in 15 minutes. Each proposal trains the next.",
     features: [
@@ -159,14 +159,14 @@ export const caseStudies: CaseStudy[] = [
     name: "RoyalSigns Studio",
     tagline: "Customers design their own sign. You make it.",
     blurb:
-      "A browser-based sign designer with live preview and direct order intake — letting customers self-configure custom signage without a sales call.",
+      "A browser-based sign designer with live preview and direct order intake, letting customers self-configure custom signage without a sales call.",
     tags: ["Drag & drop", "Live preview", "Order intake"],
     timeline: "11 weeks",
     stack: ["React", "Fabric.js", "Node.js", "Postgres", "Stripe", "AWS S3"],
     challenge:
       "Every custom sign quote started with a 20-minute phone call, photos, and a hand-drawn mockup. Sales reps were spending 60% of their week on quoting; conversions dropped on weekends when no one was on the phone.",
     solution:
-      "Studio lets customers drag, type, and preview a sign in real-time against a live render of their wall. Pricing updates as they edit. They submit; the shop receives a print-ready file and a structured order — no phone call required.",
+      "Studio lets customers drag, type, and preview a sign in real-time against a live render of their wall. Pricing updates as they edit. They submit; the shop receives a print-ready file and a structured order. No phone call required.",
     features: [
       "Real-time render against wall photo upload",
       "Material, finish, and mounting picker with live pricing",
@@ -189,7 +189,7 @@ export const caseStudies: CaseStudy[] = [
     name: "RoyalSigns CRM",
     tagline: "Quote → produce → install → invoice. One system.",
     blurb:
-      "End-to-end operations covering quoting, production scheduling, install tracking, and invoicing — purpose-built for sign shops.",
+      "End-to-end operations covering quoting, production scheduling, install tracking, and invoicing, purpose-built for sign shops.",
     tags: ["Quoting", "Production tracking", "Invoicing"],
     timeline: "16 weeks",
     stack: ["React", "Node.js", "Postgres", "QuickBooks API", "Stripe", "Twilio"],
@@ -217,14 +217,14 @@ export const caseStudies: CaseStudy[] = [
     year: "2025",
     industry: "Manufacturing",
     name: "Manufacturing Dashboard",
-    tagline: "Throughput, downtime, staffing — at a glance.",
+    tagline: "Throughput, downtime, staffing: at a glance.",
     blurb:
-      "Real-time operations dashboard for plant managers — combining throughput, downtime causes, and staffing into one screen with forecast overlays.",
+      "Real-time operations dashboard for plant managers, combining throughput, downtime causes, and staffing into one screen with forecast overlays.",
     tags: ["Real-time KPIs", "Downtime tracking", "Forecasts"],
     timeline: "9 weeks",
     stack: ["React", "TypeScript", "PostgreSQL", "TimescaleDB", "Python", "Recharts"],
     challenge:
-      "The plant had dashboards. Twelve of them, in twelve places. The morning huddle pulled numbers from MES, time-tracking, and Excel — by the time the meeting started, the data was four hours stale.",
+      "The plant had dashboards. Twelve of them, in twelve places. The morning huddle pulled numbers from MES, time-tracking, and Excel. By the time the meeting started, the data was four hours stale.",
     solution:
       "One screen, refreshing on a 30-second cadence, that ties together throughput, downtime-by-cause, and staffing utilization. Forecast overlays show whether the day is on pace by 9 a.m. Anomaly alerts route to the right supervisor's phone.",
     features: [
@@ -249,12 +249,12 @@ export const caseStudies: CaseStudy[] = [
     name: "Healthcare Compliance Platform",
     tagline: "Audit-ready, by default.",
     blurb:
-      "Secure data platform with audit trails, role-based access, and compliance-grade encryption — designed so audits become exports, not events.",
+      "Secure data platform with audit trails, role-based access, and compliance-grade encryption, designed so audits become exports, not events.",
     tags: ["Audit trails", "RBAC", "Encryption"],
     timeline: "18 weeks",
     stack: ["Next.js", "Node.js", "Postgres", "AWS KMS", "Auth0", "OpenTelemetry"],
     challenge:
-      "Auditing the system used to mean a two-week scramble — manual log assembly, screenshots of access controls, and partial gaps that drew findings. The team needed compliance to be a byproduct of the architecture, not a project.",
+      "Auditing the system used to mean a two-week scramble: manual log assembly, screenshots of access controls, and partial gaps that drew findings. The team needed compliance to be a byproduct of the architecture, not a project.",
     solution:
       "Every record-touch is immutably logged with the actor, the action, the rationale, and the policy that authorized it. RBAC is policy-driven, not role-driven. An audit becomes a date-range export, not a fire drill.",
     features: [
@@ -279,7 +279,7 @@ export const caseStudies: CaseStudy[] = [
     name: "JobSnap",
     tagline: "Field-grade. Mobile-first. Built for crews.",
     blurb:
-      "A field operations system for construction crews — job photos, daily reports, and live status from any device, in any signal condition.",
+      "A field operations system for construction crews: job photos, daily reports, and live status from any device, in any signal condition.",
     tags: ["Mobile-first", "Daily reports", "Photo logs"],
     timeline: "13 weeks",
     stack: ["React Native", "Expo", "Node.js", "Postgres", "AWS S3", "Mapbox"],
@@ -288,7 +288,7 @@ export const caseStudies: CaseStudy[] = [
     solution:
       "JobSnap puts the day's work in one mobile app: assigned jobs, photo logs by category, materials used, hours logged, daily report auto-drafted from the day's activity. Works offline; syncs on signal. Office sees status updates in real time.",
     features: [
-      "Offline-first — works on a tablet in a basement",
+      "Offline-first: works on a tablet in a basement",
       "Photo logs categorized by job phase (before / during / after)",
       "Auto-drafted daily reports from the day's activity log",
       "Live site map with crew location and job status",

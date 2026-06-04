@@ -43,15 +43,15 @@ export default function Home() {
   return (
     <>
       <Helmet>
-        <title>Ezzi Solutions AI — Custom software & apps, built with AI</title>
+        <title>Ezzi Solutions AI: Custom software & apps, built with AI</title>
         <meta
           name="description"
           content="Ezzi Solutions AI ships production custom software and apps for startups and SMBs in under 60 days. AI-augmented engineers, 40–70% less than traditional agencies."
         />
-        <meta property="og:title" content="Ezzi Solutions AI — Custom software & apps, built with AI" />
+        <meta property="og:title" content="Ezzi Solutions AI: Custom software & apps, built with AI" />
         <meta
           property="og:description"
-          content="Custom software & apps — built with AI, launched in weeks."
+          content="Custom software & apps: built with AI, launched in weeks."
         />
       </Helmet>
 
@@ -88,7 +88,7 @@ export default function Home() {
               variants={item}
               className="text-h1 max-w-5xl text-balance text-foreground"
             >
-              Custom software & apps —{" "}
+              Custom software & apps:{" "}
               <span className="relative inline-block text-accent">
                 built with AI
                 <svg

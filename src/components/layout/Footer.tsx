@@ -40,17 +40,17 @@ export default function Footer() {
             <Link
               to="/"
               className="group inline-flex items-center gap-3"
-              aria-label="Ezzi Solutions AI — Home"
+              aria-label="Ezzi Solutions AI home"
             >
               <img
                 src="/logo-full-dark.png"
-                alt="Ezzi Solutions AI — A Henagon Company"
+                alt="Ezzi Solutions AI, A Henagon Company"
                 className="h-9 w-auto select-none transition-transform duration-300 group-hover:scale-[1.03]"
                 draggable={false}
               />
             </Link>
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-muted-foreground">
-              Custom software & apps — built with AI, launched in weeks.
+              Custom software & apps, built with AI, launched in weeks.
             </p>
             <Link
               to="/contact"
@@ -107,7 +107,7 @@ export default function Footer() {
             </a>
           </div>
           <p className="text-xs text-muted-2">
-            © 2026 Ezzi Solutions AI — A Henagon Company. All rights reserved.
+            © 2026 Ezzi Solutions AI (A Henagon Company). All rights reserved.
           </p>
         </div>
       </Container>

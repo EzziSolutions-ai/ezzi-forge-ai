@@ -32,7 +32,7 @@ const featured = [
     industry: "Field Services",
     name: "JobSnap",
     blurb:
-      "Field operations system for crews — job photos, daily reports, and live status from any device.",
+      "Field operations system for crews: job photos, daily reports, and live status from any device.",
     tags: ["Mobile-first", "Daily reports", "Photo logs"],
     href: "/case-studies/jobsnap",
   },

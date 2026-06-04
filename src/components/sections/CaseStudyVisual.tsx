@@ -174,7 +174,7 @@ function Configurator({ className }: { className?: string }) {
           </g>
         ))}
         <rect y="172" width="170" height="32" rx="6" fill="rgb(59 130 246)" />
-        <text x="85" y="192" textAnchor="middle" fontFamily="Geist, sans-serif" fontWeight="600" fontSize="11" fill="#fff" letterSpacing="0.5">Order — $182</text>
+        <text x="85" y="192" textAnchor="middle" fontFamily="Geist, sans-serif" fontWeight="600" fontSize="11" fill="#fff" letterSpacing="0.5">Order: $182</text>
       </g>
     </svg>
   );

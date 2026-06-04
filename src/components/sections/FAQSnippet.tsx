@@ -9,11 +9,11 @@ const ease = [0.16, 1, 0.3, 1] as const;
 const faqs = [
   {
     q: "Can you really ship a production app in 60 days?",
-    a: "Yes — that's our baseline, not a marketing claim. The 60-day clock starts when scope is locked. Most projects come in at 45–55 days. Larger platforms (multi-product SaaS, regulated industries) take 90–120, and we say so upfront.",
+    a: "Yes. That's our baseline, not a marketing claim. The 60-day clock starts when scope is locked. Most projects come in at 45–55 days. Larger platforms (multi-product SaaS, regulated industries) take 90–120, and we say so upfront.",
   },
   {
     q: "Why are you 40–70% less than traditional agencies?",
-    a: "Two reasons. (1) AI compresses the parts of the build that don't need a human — boilerplate, scaffolding, test stubs, internal docs. (2) We run lean senior teams, no junior army with billable hours. The savings pass through to you.",
+    a: "Two reasons. (1) AI compresses the parts of the build that don't need a human: boilerplate, scaffolding, test stubs, internal docs. (2) We run lean senior teams, no junior army with billable hours. The savings pass through to you.",
   },
   {
     q: "Who owns the code?",

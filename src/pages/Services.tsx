@@ -14,7 +14,7 @@ export default function Services() {
   return (
     <>
       <Helmet>
-        <title>Services — Ezzi Solutions AI</title>
+        <title>Services | Ezzi Solutions AI</title>
         <meta
           name="description"
           content="Five ways we ship software faster: custom software, mobile apps, web apps, SaaS products, UI/UX design. All built with AI, launched in weeks."
@@ -46,7 +46,7 @@ export default function Services() {
 
             <p className="mt-7 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
               Custom software, mobile apps, web platforms, SaaS products, and UI/UX
-              design — each built around the same AI-augmented workflow that gets
+              design, each built around the same AI-augmented workflow that gets
               production apps live in under 60 days.
             </p>
           
@@ -112,7 +112,7 @@ export default function Services() {
               <span className="text-muted-foreground">We&apos;ll tell you.</span>
             </h2>
             <p className="mt-6 text-base leading-relaxed text-muted-foreground md:text-lg">
-              Send the rough idea — sometimes the right service isn&apos;t the one you
+              Send the rough idea. Sometimes the right service isn&apos;t the one you
               think you need. We&apos;ll either confirm or suggest a better fit.
             </p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-3">

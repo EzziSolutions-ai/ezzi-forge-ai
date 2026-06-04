@@ -21,12 +21,12 @@ export default function CaseStudyDetail() {
   return (
     <>
       <Helmet>
-        <title>{`${study.name} — ${study.industry} · Ezzi Solutions AI`}</title>
+        <title>{`${study.name}: ${study.industry} | Ezzi Solutions AI`}</title>
         <meta
           name="description"
           content={`${study.tagline} ${study.blurb}`}
         />
-        <meta property="og:title" content={`${study.name} — ${study.industry}`} />
+        <meta property="og:title" content={`${study.name}: ${study.industry}`} />
         <meta property="og:description" content={study.blurb} />
       </Helmet>
 
@@ -252,7 +252,7 @@ export default function CaseStudyDetail() {
                 &ldquo;{study.quote.text}&rdquo;
               </blockquote>
               <figcaption className="mt-10 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-2">
-                — {study.quote.attribution}
+                {study.quote.attribution}
               </figcaption>
             </motion.figure>
           </Container>
@@ -293,7 +293,7 @@ export default function CaseStudyDetail() {
               Building something like {study.name}?
             </h2>
             <p className="mt-6 text-base leading-relaxed text-muted-foreground md:text-lg">
-              Send the rough idea — we&apos;ll send back a written quote and a timeline
+              Send the rough idea. We&apos;ll send back a written quote and a timeline
               you can hold us to.
             </p>
             <Link

@@ -20,7 +20,7 @@ const ease = [0.16, 1, 0.3, 1] as const;
 const quickFaqs = [
   {
     q: "How soon will I hear back?",
-    a: "Within 48 hours, every time — usually faster. A senior engineer reads every inbound, not a sales rep.",
+    a: "Within 48 hours, every time (usually faster). A senior engineer reads every inbound, not a sales rep.",
   },
   {
     q: "Do you sign an NDA?",
@@ -44,7 +44,7 @@ export default function Contact() {
   return (
     <>
       <Helmet>
-        <title>Contact — Ezzi Solutions AI</title>
+        <title>Contact | Ezzi Solutions AI</title>
         <meta
           name="description"
           content="Talk to a senior engineer about your project. Most quotes returned within 48 hours."
@@ -78,7 +78,7 @@ export default function Contact() {
             </h1>
 
             <p className="mt-7 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
-              Send the rough idea — what you&apos;re building, when you need it, what
+              Send the rough idea: what you&apos;re building, when you need it, what
               you can spend. A senior engineer replies within 48 hours.
             </p>
           
@@ -258,7 +258,7 @@ export default function Contact() {
               Common questions
             </div>
             <h2 className="text-h2 mt-5 text-foreground text-balance">
-              Before you write the message —{" "}
+              Before you write the message:{" "}
               <span className="text-muted-foreground">three quick answers.</span>
             </h2>
           </div>

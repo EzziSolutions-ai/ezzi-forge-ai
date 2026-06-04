@@ -9,7 +9,7 @@ const services = [
   {
     label: "Custom Software",
     href: "/services/custom-software",
-    blurb: "Operations platforms, internal tools, vertical SaaS — built for your specific workflow.",
+    blurb: "Operations platforms, internal tools, vertical SaaS, built for your specific workflow.",
     proof: "RoyalSigns CRM · Manufacturing Dashboard",
     icon: Code2,
     span: "md:col-span-3",
@@ -17,7 +17,7 @@ const services = [
   {
     label: "Mobile Apps",
     href: "/services/mobile-app",
-    blurb: "iOS & Android — native-grade builds with React Native or Swift/Kotlin where it matters.",
+    blurb: "iOS & Android: native-grade builds with React Native or Swift/Kotlin where it matters.",
     proof: "CareFlow · JobSnap",
     icon: Smartphone,
     span: "md:col-span-3",
@@ -25,7 +25,7 @@ const services = [
   {
     label: "Web Apps",
     href: "/services/web-app",
-    blurb: "Production React platforms — fast, accessible, scalable.",
+    blurb: "Production React platforms, fast, accessible, scalable.",
     proof: "RoyalSigns Studio · HC Compliance",
     icon: Globe,
     span: "md:col-span-2",

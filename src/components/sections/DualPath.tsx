@@ -25,7 +25,7 @@ const paths = [
     audience: "SMB owner",
     headline: "Modernize the operation. Without the agency drag.",
     body:
-      "Replace spreadsheets, fragmented tools, and manual handoffs with software that runs your business — quoting, ops, field, compliance.",
+      "Replace spreadsheets, fragmented tools, and manual handoffs with software that runs your business: quoting, ops, field, compliance.",
     bullets: [
       "Audit & roadmap in week one",
       "Phased rollout, no big-bang risk",
@@ -48,7 +48,7 @@ export default function DualPath() {
             Two paths into Ezzi
           </div>
           <h2 className="text-h2 mt-5 text-foreground text-balance">
-            We build for both kinds of operators —{" "}
+            We build for both kinds of operators:{" "}
             <span className="text-muted-foreground">
               founders shipping MVPs and SMBs replacing the spreadsheet.
             </span>

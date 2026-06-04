@@ -19,7 +19,7 @@ const pains = [
   {
     icon: Wrench,
     title: "Integrations turned into rabbit holes.",
-    body: "Payments, login, user accounts, your existing CRM — every connection took a week, three rewrites, and a Stack Overflow tab you never closed.",
+    body: "Payments, login, user accounts, your existing CRM: every connection took a week, three rewrites, and a Stack Overflow tab you never closed.",
   },
   {
     icon: Clock,
@@ -73,7 +73,7 @@ export default function PainStrip() {
 
           <p className="mx-auto mt-14 max-w-2xl text-center text-base leading-relaxed text-muted-foreground md:mt-20 md:text-lg">
             <span className="text-foreground font-medium">This isn&apos;t your failure.</span>{" "}
-            AI coding tools are excellent at one thing — making prototypes. They were never
+            AI coding tools are excellent at one thing: making prototypes. They were never
             built for the last 40% that turns a prototype into a real product.
           </p>
         </Container>

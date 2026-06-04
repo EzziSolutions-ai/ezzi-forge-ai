@@ -50,7 +50,7 @@ export default function ProcessSnapshot() {
           <div className="md:col-span-7 md:pt-14">
             <p className="max-w-xl text-base leading-relaxed text-muted-foreground">
               Our timelines aren't a wishlist. They're a contract. Below is the average
-              shipping cadence — the one our case studies actually hit. Most projects come
+              shipping cadence, the one our case studies actually hit. Most projects come
               in at the lower end.
             </p>
             <Link

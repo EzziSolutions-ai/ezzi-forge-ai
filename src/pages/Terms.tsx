@@ -25,13 +25,13 @@ const sections = [
     h: "4. Intellectual property",
     p: [
       "Code, designs, and other deliverables produced under a paid engagement are transferred to you upon final payment. We retain the right to reference completed work in our portfolio unless explicitly excluded in the statement of work.",
-      "Site content (text, images, design) is © Ezzi Solutions AI — A Henagon Company. You may reference and link, but not reproduce.",
+      "Site content (text, images, design) is © Ezzi Solutions AI, a Henagon Company. You may reference and link, but not reproduce.",
     ],
   },
   {
     h: "5. Confidentiality",
     p: [
-      "We treat information you share as confidential. We're happy to sign your NDA — ours, if you don't have one, is mutual and standard.",
+      "We treat information you share as confidential. We're happy to sign your NDA. Ours, if you don't have one, is mutual and standard.",
     ],
   },
   {
@@ -58,7 +58,7 @@ export default function Terms() {
   return (
     <>
       <Helmet>
-        <title>Terms of Service — Ezzi Solutions AI</title>
+        <title>Terms of Service | Ezzi Solutions AI</title>
       </Helmet>
 
       <section className="relative pt-24 md:pt-32">
@@ -76,7 +76,7 @@ export default function Terms() {
               These are the general terms that govern your use of this site and any
               engagement with Ezzi Solutions AI.{" "}
               <span className="text-muted-2">
-                (Template language — please have a lawyer in your jurisdiction review before launch.)
+                (Template language: please have a lawyer in your jurisdiction review before launch.)
               </span>
             </p>
 

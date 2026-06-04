@@ -35,7 +35,7 @@ export default function Partners() {
   return (
     <>
       <Helmet>
-        <title>Partners & Integrations — Ezzi Solutions AI</title>
+        <title>Partners & Integrations | Ezzi Solutions AI</title>
         <meta name="description" content="Built on the best tools. Integrated with what you already use. Our partner stack across cloud, AI, payments, auth, and business apps." />
       </Helmet>
 
@@ -63,7 +63,7 @@ export default function Partners() {
             <p className="mt-7 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
               We don&apos;t reinvent payments, auth, or AI inference. We use the
               best-in-class providers, with deep experience shipping them
-              into production — and we integrate cleanly with whatever you already run.
+              into production. We integrate cleanly with whatever you already run.
             </p>
           
             </div>
@@ -149,13 +149,13 @@ export default function Partners() {
               </div>
               <h2 className="text-h2 mt-5 text-foreground text-balance">
                 Agencies & studios{" "}
-                <span className="text-muted-foreground">— let&apos;s talk.</span>
+                <span className="text-muted-foreground">: let&apos;s talk.</span>
               </h2>
             </div>
             <div className="md:col-span-7 md:pt-14">
               <p className="max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
                 If you&apos;re a marketing agency, brand studio, or vertical consultancy
-                that runs into engineering work you can&apos;t staff — we&apos;ll be your
+                that runs into engineering work you can&apos;t staff. We&apos;ll be your
                 build partner. Referral commissions, white-label options, or co-marketing.
               </p>
               <Link
