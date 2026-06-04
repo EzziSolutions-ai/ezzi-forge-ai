@@ -35,7 +35,7 @@ export default function Careers() {
   return (
     <>
       <Helmet>
-        <title>Careers — Ezzi Solutions AI</title>
+        <title>Careers | Ezzi Solutions AI</title>
         <meta name="description" content="Help us build the next 100 systems. Small senior team, AI-augmented workflow, real ownership of every project." />
       </Helmet>
 

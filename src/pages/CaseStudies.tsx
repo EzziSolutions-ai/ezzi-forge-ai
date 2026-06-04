@@ -46,7 +46,7 @@ export default function CaseStudies() {
   return (
     <>
       <Helmet>
-        <title>Case Studies: Ezzi Solutions AI</title>
+        <title>Case Studies | Ezzi Solutions AI</title>
         <meta
           name="description"
           content="Real systems in production: voice-driven healthcare, sales automation, manufacturing dashboards, field operations apps. Eight case studies across six industries."

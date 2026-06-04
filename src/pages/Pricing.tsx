@@ -115,7 +115,7 @@ export default function Pricing() {
   return (
     <>
       <Helmet>
-        <title>Pricing & Packages — Ezzi Solutions AI</title>
+        <title>Pricing & Packages | Ezzi Solutions AI</title>
         <meta
           name="description"
           content="Quote-based pricing for AI-powered software & app development. Most quotes returned within 48 hours."

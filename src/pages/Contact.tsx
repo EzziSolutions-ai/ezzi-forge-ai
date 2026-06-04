@@ -44,7 +44,7 @@ export default function Contact() {
   return (
     <>
       <Helmet>
-        <title>Contact — Ezzi Solutions AI</title>
+        <title>Contact | Ezzi Solutions AI</title>
         <meta
           name="description"
           content="Talk to a senior engineer about your project. Most quotes returned within 48 hours."

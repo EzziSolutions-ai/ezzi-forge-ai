@@ -61,7 +61,7 @@ export default function Testimonials() {
   return (
     <>
       <Helmet>
-        <title>Testimonials — Ezzi Solutions AI</title>
+        <title>Testimonials | Ezzi Solutions AI</title>
         <meta name="description" content="What founders and operators say about working with Ezzi Solutions AI. Real quotes from real projects across healthcare, sales, manufacturing, and field services." />
       </Helmet>
 

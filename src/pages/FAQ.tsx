@@ -86,8 +86,8 @@ export default function FAQ() {
   return (
     <>
       <Helmet>
-        <title>FAQ · Ezzi Solutions AI</title>
-        <meta name="description" content="Pricing, timeline, process, ownership, support, and AI workflow — every question we hear before the first call." />
+        <title>FAQ | Ezzi Solutions AI</title>
+        <meta name="description" content="Pricing, timeline, process, ownership, support, and AI workflow. Every question we hear before the first call." />
       </Helmet>
 
       {/* HERO */}

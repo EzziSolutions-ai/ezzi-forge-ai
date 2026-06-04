@@ -52,7 +52,7 @@ export default function Privacy() {
   return (
     <>
       <Helmet>
-        <title>Privacy Policy — Ezzi Solutions AI</title>
+        <title>Privacy Policy | Ezzi Solutions AI</title>
       </Helmet>
 
       <section className="relative pt-24 md:pt-32">

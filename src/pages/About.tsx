@@ -54,7 +54,7 @@ export default function About() {
   return (
     <>
       <Helmet>
-        <title>About — Ezzi Solutions AI</title>
+        <title>About | Ezzi Solutions AI</title>
         <meta
           name="description"
           content="A small senior team building software the AI-first way. Part of Henagon. Custom software & apps, launched in weeks."

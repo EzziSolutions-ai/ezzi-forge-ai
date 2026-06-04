@@ -70,12 +70,12 @@ export default function FromPrototypeToProduction() {
   return (
     <>
       <Helmet>
-        <title>From Prototype to Production · Ezzi Solutions AI</title>
+        <title>From Prototype to Production | Ezzi Solutions AI</title>
         <meta
           name="description"
-          content="You tried building software with an AI coding tool and got stuck at 60%. We ship the other 40% — in 60 days, on time, or you pay 10% less."
+          content="You tried building software with an AI coding tool and got stuck at 60%. We ship the other 40%, in 60 days, on time, or you pay 10% less."
         />
-        <meta property="og:title" content="From Prototype to Production — Ezzi Solutions AI" />
+        <meta property="og:title" content="From Prototype to Production | Ezzi Solutions AI" />
         <meta
           property="og:description"
           content="Your AI prototype is stuck at 60%. We ship the other 40%."

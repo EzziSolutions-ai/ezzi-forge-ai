@@ -59,11 +59,11 @@ export default function Header() {
         <Link
           to="/"
           className="group inline-flex items-center gap-2.5"
-          aria-label="Ezzi Solutions AI — Home"
+          aria-label="Ezzi Solutions AI home"
         >
           <img
             src="/logo-full-dark.png"
-            alt="Ezzi Solutions AI — A Henagon Company"
+            alt="Ezzi Solutions AI, A Henagon Company"
             className="h-7 w-auto select-none transition-transform duration-300 group-hover:scale-[1.03] md:h-8"
             draggable={false}
           />

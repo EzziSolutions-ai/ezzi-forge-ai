@@ -58,7 +58,7 @@ export default function Terms() {
   return (
     <>
       <Helmet>
-        <title>Terms of Service — Ezzi Solutions AI</title>
+        <title>Terms of Service | Ezzi Solutions AI</title>
       </Helmet>
 
       <section className="relative pt-24 md:pt-32">

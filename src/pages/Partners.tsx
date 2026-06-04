@@ -35,7 +35,7 @@ export default function Partners() {
   return (
     <>
       <Helmet>
-        <title>Partners & Integrations — Ezzi Solutions AI</title>
+        <title>Partners & Integrations | Ezzi Solutions AI</title>
         <meta name="description" content="Built on the best tools. Integrated with what you already use. Our partner stack across cloud, AI, payments, auth, and business apps." />
       </Helmet>
 

@@ -132,7 +132,7 @@ export default function Process() {
   return (
     <>
       <Helmet>
-        <title>Process: How we ship in 60 days · Ezzi Solutions AI</title>
+        <title>Process: How we ship in 60 days | Ezzi Solutions AI</title>
         <meta
           name="description"
           content="Six phases. Eight weeks. The exact workflow that gets production apps live in under 60 days — what you get at each step, the tools we use, and how AI compresses the cycle."
@@ -205,7 +205,7 @@ export default function Process() {
                 <div key={d.week} className="flex flex-col gap-2">
                   <div
                     className={`h-12 rounded-md ${phaseColor[d.phase as keyof typeof phaseColor]}`}
-                    title={`${d.week} — ${d.phase}`}
+                    title={`${d.week}: ${d.phase}`}
                   />
                   <div className="text-center font-mono text-[9px] uppercase tracking-[0.16em] text-muted-2">
                     {d.week}

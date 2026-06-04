@@ -14,7 +14,7 @@ export default function Services() {
   return (
     <>
       <Helmet>
-        <title>Services: Ezzi Solutions AI</title>
+        <title>Services | Ezzi Solutions AI</title>
         <meta
           name="description"
           content="Five ways we ship software faster: custom software, mobile apps, web apps, SaaS products, UI/UX design. All built with AI, launched in weeks."

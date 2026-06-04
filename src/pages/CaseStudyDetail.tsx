@@ -21,7 +21,7 @@ export default function CaseStudyDetail() {
   return (
     <>
       <Helmet>
-        <title>{`${study.name}: ${study.industry} · Ezzi Solutions AI`}</title>
+        <title>{`${study.name}: ${study.industry} | Ezzi Solutions AI`}</title>
         <meta
           name="description"
           content={`${study.tagline} ${study.blurb}`}
