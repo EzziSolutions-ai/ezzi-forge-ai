@@ -39,24 +39,24 @@ const claims = [
 
 const objectionFaqs = [
   {
-    q: "I already spent $5K on AI tool subscriptions — won't this just be more burn?",
+    q: "I already spent $5K on AI tool subscriptions. Won't this just be more burn?",
     a: "Fair concern. The difference: AI tools sell you the option to build software. We sell you the software. Fixed scope, fixed price, fixed timeline, written before you commit. If the math doesn't work, we'll say so on the first call.",
   },
   {
     q: "Can you start from the prototype I already built, or do I throw it away?",
-    a: "Depends what's there. We'll audit it on the discovery call. Sometimes the data model and UI sketches save weeks; sometimes the code itself is faster to rebuild than fix. Either way, your time spent isn't wasted — the requirements and edge cases you discovered all carry forward.",
+    a: "Depends what's there. We'll audit it on the discovery call. Sometimes the data model and UI sketches save weeks; sometimes the code itself is faster to rebuild than fix. Either way, your time spent isn't wasted: the requirements and edge cases you discovered all carry forward.",
   },
   {
     q: "How do I know you're not just another agency selling 'AI'?",
-    a: "We use AI in our build cycle every day — code generation, test stubs, scoping, documentation. We can show you exactly where in our process it shows up. But the senior engineers on your project are real, paired with AI to ship 3–5× faster, not replaced by it.",
+    a: "We use AI in our build cycle every day: code generation, test stubs, scoping, documentation. We can show you exactly where in our process it shows up. But the senior engineers on your project are real, paired with AI to ship 3–5× faster, not replaced by it.",
   },
   {
     q: "What if we run over the 60-day timeline?",
-    a: "Your invoice is automatically reduced by 10%. Built into the quote. We've never paid it out — and that's not because of fine print. It's because we scope honestly. If 60 days isn't realistic, we say so upfront.",
+    a: "Your invoice is automatically reduced by 10%. Built into the quote. We've never paid it out. That's not because of fine print; we scope honestly. If 60 days isn't realistic, we say so upfront.",
   },
   {
     q: "Who actually owns the code if something goes wrong with you?",
-    a: "You do, from day one. GitHub repo, IP assignment, deploy keys — all yours immediately. No proprietary platform, no vendor lock-in. If we got hit by a bus tomorrow, any competent engineering team could take over your codebase by Monday morning.",
+    a: "You do, from day one. GitHub repo, IP assignment, deploy keys: all yours immediately. No proprietary platform, no vendor lock-in. If we got hit by a bus tomorrow, any competent engineering team could take over your codebase by Monday morning.",
   },
 ];
 
@@ -70,7 +70,7 @@ export default function FromPrototypeToProduction() {
   return (
     <>
       <Helmet>
-        <title>From Prototype to Production — Ezzi Solutions AI</title>
+        <title>From Prototype to Production · Ezzi Solutions AI</title>
         <meta
           name="description"
           content="You tried building software with an AI coding tool and got stuck at 60%. We ship the other 40% — in 60 days, on time, or you pay 10% less."
@@ -151,7 +151,7 @@ export default function FromPrototypeToProduction() {
                 className="mt-8 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg"
               >
                 AI coding tools are excellent at making prototypes. They&apos;re not
-                built for production. Senior engineers + AI build the rest — and ship it
+                built for production. Senior engineers + AI build the rest, and ship it
                 in <span className="text-foreground">60 days, on time, or you pay 10% less</span>.
               </motion.p>
 
@@ -323,14 +323,14 @@ export default function FromPrototypeToProduction() {
             <div className="mb-14 max-w-2xl md:mb-20">
               <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-2">
                 <span className="mr-3 inline-block h-px w-8 align-middle bg-border-strong" />
-                Selected work — your scale
+                Selected work, your scale
               </div>
               <h2 className="text-h2 mt-5 text-foreground text-balance">
                 Real businesses,{" "}
                 <span className="text-muted-foreground">about the size of yours.</span>
               </h2>
               <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
-                We picked three from the portfolio — operators with revenues in the
+                We picked three from the portfolio: operators with revenues in the
                 same band you operate at, with operational problems that look like the
                 ones you&apos;re trying to solve.
               </p>

@@ -80,7 +80,7 @@ export default function GuaranteeBlock() {
                 <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
                   We give you a fixed timeline in the written quote. If we deliver one day
                   past it, your invoice is automatically reduced by 10%. We&apos;ve never
-                  paid out — and we don&apos;t plan to start now.
+                  paid out. We don't plan to start now.
                 </p>
               </div>
             </div>

@@ -8,7 +8,7 @@ const claims = [
   {
     metric: "60",
     suffix: "days",
-    label: "Production launch — start to live",
+    label: "Production launch: start to live",
     body:
       "We ship working production apps in under 60 days. Not prototypes. Not staging. Real software your customers use.",
     icon: Zap,
@@ -28,7 +28,7 @@ const claims = [
     suffix: "faster",
     label: "Per engineer, per sprint",
     body:
-      "Our engineers pair with AI on every commit — scoping, code, tests, review. The whole cycle compresses.",
+      "Our engineers pair with AI on every commit: scoping, code, tests, review. The whole cycle compresses.",
     icon: Cpu,
     accent: "Throughput",
   },
@@ -44,7 +44,7 @@ export default function Differentiators() {
             Why teams pick Ezzi
           </div>
           <h2 className="text-h2 mt-5 text-foreground text-balance">
-            Three numbers we put on the page —{" "}
+            Three numbers we put on the page,{" "}
             <span className="text-muted-foreground">because we can actually hit them.</span>
           </h2>
         </div>

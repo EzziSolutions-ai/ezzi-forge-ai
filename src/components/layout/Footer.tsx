@@ -50,7 +50,7 @@ export default function Footer() {
               />
             </Link>
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-muted-foreground">
-              Custom software & apps — built with AI, launched in weeks.
+              Custom software & apps, built with AI, launched in weeks.
             </p>
             <Link
               to="/contact"
@@ -107,7 +107,7 @@ export default function Footer() {
             </a>
           </div>
           <p className="text-xs text-muted-2">
-            © 2026 Ezzi Solutions AI — A Henagon Company. All rights reserved.
+            © 2026 Ezzi Solutions AI (A Henagon Company). All rights reserved.
           </p>
         </div>
       </Container>

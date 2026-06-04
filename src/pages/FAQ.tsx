@@ -13,45 +13,45 @@ type Category = "Pricing" | "Timeline" | "Process" | "Ownership" | "Support" | "
 const faqs: { category: Category; q: string; a: string }[] = [
   // PRICING
   { category: "Pricing", q: "Why are you 40–70% less than traditional agencies?",
-    a: "Two reasons. (1) AI compresses the parts of the build that don't need a human — boilerplate, scaffolding, test stubs, internal docs. (2) We run lean senior teams, no junior army with billable hours. The savings pass through to you." },
+    a: "Two reasons. (1) AI compresses the parts of the build that don't need a human: boilerplate, scaffolding, test stubs, internal docs. (2) We run lean senior teams, no junior army with billable hours. The savings pass through to you." },
   { category: "Pricing", q: "What does a typical project cost?",
-    a: "Most engagements run between $15K and $80K depending on scope. We don't publish fixed prices because the work isn't a fixed product — but we return a written quote within 48 hours of your inquiry." },
+    a: "Most engagements run between $15K and $80K depending on scope. We don't publish fixed prices because the work isn't a fixed product, but we return a written quote within 48 hours of your inquiry." },
   { category: "Pricing", q: "Do you offer equity-based pricing for early-stage startups?",
-    a: "Occasionally — for pre-seed founders building something we believe in, we'll structure a hybrid (reduced cash + equity). Reach out and tell us the story." },
+    a: "Occasionally (for pre-seed founders building something we believe in) we'll structure a hybrid (reduced cash + equity). Reach out and tell us the story." },
   { category: "Pricing", q: "Do I pay upfront or in installments?",
     a: "Typically 50% to start, 50% on launch. For longer engagements we move to monthly billing tied to milestones." },
 
   // TIMELINE
   { category: "Timeline", q: "Can you really ship a production app in 60 days?",
-    a: "Yes — that's our baseline. The 60-day clock starts when scope is locked. Most projects come in at 45–55 days. Larger platforms (multi-product SaaS, regulated industries) take 90–120, and we say so upfront." },
+    a: "Yes. That's our baseline. The 60-day clock starts when scope is locked. Most projects come in at 45–55 days. Larger platforms (multi-product SaaS, regulated industries) take 90–120, and we say so upfront." },
   { category: "Timeline", q: "What slows projects down?",
     a: "Almost always one of: scope creep, slow stakeholder feedback, or third-party API delays. We flag all three at week one and re-quote if scope changes mid-build." },
   { category: "Timeline", q: "Can you start next week?",
-    a: "Usually. We hold capacity ~2 weeks out for new projects. If you need an immediate start, ask — sometimes there's room." },
+    a: "Usually. We hold capacity ~2 weeks out for new projects. If you need an immediate start, ask. Sometimes there's room." },
 
   // PROCESS
   { category: "Process", q: "Do you sign an NDA?",
-    a: "Not for the first conversation. If we move forward, we'll sign yours or send ours — usually mutual is cleanest." },
+    a: "Not for the first conversation. If we move forward, we'll sign yours or send ours. Mutual is usually cleanest." },
   { category: "Process", q: "Will I see progress while you build?",
-    a: "Yes — daily builds deploy to a private staging URL, and we run a 15-minute Friday demo every week. No 'six-week black box' surprises." },
+    a: "Yes. Daily builds deploy to a private staging URL, and we run a 15-minute Friday demo every week. No 'six-week black box' surprises." },
   { category: "Process", q: "Do you do design too, or just engineering?",
     a: "Both. Every project includes UX/UI from a senior designer. If you already have Figma designs, we'll work from yours. We can also do design-only engagements." },
   { category: "Process", q: "What if our requirements change mid-build?",
-    a: "Small adjustments happen continuously — that's why we do weekly demos. Bigger pivots get re-scoped openly: new written quote, new timeline if needed, no drama." },
+    a: "Small adjustments happen continuously, which is why we do weekly demos. Bigger pivots get re-scoped openly: new written quote, new timeline if needed, no drama." },
 
   // OWNERSHIP
   { category: "Ownership", q: "Who owns the code?",
     a: "You do. On day one. You get the GitHub repo, the IP assignment, the deploy access, and the documentation. No retainer-lockin, no proprietary platform you're stuck on." },
   { category: "Ownership", q: "Will another team be able to take over the codebase?",
-    a: "Yes — we deliberately use boring, mainstream tools (TypeScript, React, Postgres, etc.) so any competent engineering team can pick it up without learning a custom stack." },
+    a: "Yes. We deliberately use boring, mainstream tools (TypeScript, React, Postgres, etc.) so any competent engineering team can pick it up without learning a custom stack." },
   { category: "Ownership", q: "Do I keep the design files too?",
-    a: "Yes — Figma file ownership transfers at handoff, including the component system and tokens." },
+    a: "Yes. Figma file ownership transfers at handoff, including the component system and tokens." },
 
   // SUPPORT
   { category: "Support", q: "What happens after launch?",
-    a: "30 days of free post-launch support — bug fixes, small adjustments, the inevitable 'one more thing' from the field. After day 30, you choose: hire us for ongoing work, hire someone else, or run it yourself." },
+    a: "30 days of free post-launch support: bug fixes, small adjustments, the inevitable 'one more thing' from the field. After day 30, you choose: hire us for ongoing work, hire someone else, or run it yourself." },
   { category: "Support", q: "Do you offer ongoing support contracts?",
-    a: "Yes — our Build+Run engagement model includes a monthly retainer for monitoring, support, and feature work. No commitment beyond the current month." },
+    a: "Yes. Our Build+Run engagement model includes a monthly retainer for monitoring, support, and feature work. No commitment beyond the current month." },
   { category: "Support", q: "What's your response time on a production issue?",
     a: "Same-day during the free support window. Build+Run retainers get same-day response with severity tiers (P0 within 1hr, P1 within 4hr)." },
 
@@ -61,7 +61,7 @@ const faqs: { category: Category; q: string; a: string }[] = [
   { category: "AI", q: "Are you replacing engineers with AI?",
     a: "No. We're using AI to make senior engineers more effective. Every line of code is reviewed by a human; every architecture decision is made by a human. AI does the grunt work; humans do the thinking." },
   { category: "AI", q: "Will my product have AI features in it?",
-    a: "Only if AI features make sense for your product. Sometimes the best AI work is what we use internally to ship faster — and the actual product has zero LLM calls. We design what works." },
+    a: "Only if AI features make sense for your product. Sometimes the best AI work is what we use internally to ship faster, and the actual product has zero LLM calls. We design what works." },
   { category: "AI", q: "Which AI tools do you use?",
     a: "Claude (Anthropic), GPT-5 / GPT-4o (OpenAI), Cursor for in-editor pairing, GitHub Copilot for inline completions. We try new tools constantly; we don't lock to one vendor." },
 ];
@@ -86,7 +86,7 @@ export default function FAQ() {
   return (
     <>
       <Helmet>
-        <title>FAQ — Ezzi Solutions AI</title>
+        <title>FAQ · Ezzi Solutions AI</title>
         <meta name="description" content="Pricing, timeline, process, ownership, support, and AI workflow — every question we hear before the first call." />
       </Helmet>
 
@@ -112,7 +112,7 @@ export default function FAQ() {
               <span className="text-muted-foreground">we hear before the first call.</span>
             </h1>
             <p className="mt-7 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
-              Pricing, timeline, process, ownership, support, AI — the full set of
+              Pricing, timeline, process, ownership, support, AI: the full set of
               answers. If something&apos;s missing, ask us directly.
             </p>
           

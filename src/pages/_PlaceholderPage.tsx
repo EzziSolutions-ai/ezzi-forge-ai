@@ -10,12 +10,12 @@ export default function PlaceholderPage({
   title: string;
   pageTitle?: string;
 }) {
-  const t = pageTitle ?? `${{title}}: Ezzi Solutions AI`;
+  const t = pageTitle ?? `${title}: Ezzi Solutions AI`;
   return (
     <>
       <Helmet>
         <title>{t}</title>
-        <meta name="description" content={`${{title}}: coming soon at Ezzi Solutions AI.`} />
+        <meta name="description" content={`${title}: coming soon at Ezzi Solutions AI.`} />
       </Helmet>
       <section className="relative flex min-h-[70vh] items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-dot-grid opacity-[0.5]" />

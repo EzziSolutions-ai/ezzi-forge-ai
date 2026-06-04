@@ -364,7 +364,7 @@ function PricingArt() {
         </g>
       ))}
       <text x="360" y="450" textAnchor="middle" fontFamily="JetBrains Mono, monospace" fontSize="10" letterSpacing="3" fill="rgb(113 113 122)">
-        — QUOTE-BASED PRICING —
+        · QUOTE-BASED PRICING ·
       </text>
     </svg>
   );

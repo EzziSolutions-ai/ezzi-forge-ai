@@ -162,7 +162,7 @@ export default function PrototypeQuoteForm() {
               <span className="text-muted-foreground">We&apos;ll send back a real plan.</span>
             </h2>
             <p className="mt-6 max-w-md text-base leading-relaxed text-muted-foreground md:text-lg">
-              A senior engineer reads every inbound — not a sales rep. You&apos;ll have
+              A senior engineer reads every inbound, not a sales rep. You&apos;ll have
               a written quote in your inbox within 48 hours, or a clear &lsquo;not the
               right fit&rsquo; with a referral.
             </p>
