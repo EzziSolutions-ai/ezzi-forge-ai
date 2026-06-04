@@ -15,7 +15,7 @@ export default function PlaceholderPage({
     <>
       <Helmet>
         <title>{t}</title>
-        <meta name="description" content={`${title} — coming soon at Ezzi Solutions AI.`} />
+        <meta name="description" content={`${{title}}: coming soon at Ezzi Solutions AI.`} />
       </Helmet>
       <section className="relative flex min-h-[70vh] items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-dot-grid opacity-[0.5]" />

@@ -252,7 +252,7 @@ export default function CaseStudyDetail() {
                 &ldquo;{study.quote.text}&rdquo;
               </blockquote>
               <figcaption className="mt-10 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-2">
-                — {study.quote.attribution}
+                {study.quote.attribution}
               </figcaption>
             </motion.figure>
           </Container>

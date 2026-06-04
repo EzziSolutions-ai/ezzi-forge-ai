@@ -7,7 +7,7 @@ export default function NotFound() {
   return (
     <>
       <Helmet>
-        <title>Not Found — Ezzi Solutions AI</title>
+        <title>Not Found: Ezzi Solutions AI</title>
       </Helmet>
 
       <section className="relative isolate overflow-hidden">

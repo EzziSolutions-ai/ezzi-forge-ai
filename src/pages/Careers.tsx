@@ -21,7 +21,7 @@ const principles = [
   {
     icon: Wrench,
     title: "Real ownership",
-    body: "You'll lead projects end-to-end — discovery, design partnership, shipping, post-launch. No hand-offs to nobody.",
+    body: "You'll lead projects end-to-end: discovery, design partnership, shipping, post-launch. No hand-offs to nobody.",
   },
 ];
 
@@ -63,7 +63,7 @@ export default function Careers() {
             <p className="mt-7 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
               Small senior team. AI-augmented workflow. Real ownership of every
               project from discovery to launch. If that sounds like the job
-              you&apos;ve been describing to your friends — let&apos;s talk.
+              you&apos;ve been describing to your friends. Let&apos;s talk.
             </p>
           
             </div>
@@ -123,7 +123,7 @@ export default function Careers() {
             <h2 className="text-h2 mt-5 text-foreground text-balance">
               {roles.length === 0 ? "No active roles" : `${roles.length} open roles`}
               {roles.length === 0 && (
-                <span className="text-muted-foreground"> — but we&apos;re always reading.</span>
+                <span className="text-muted-foreground">, but we&apos;re always reading.</span>
               )}
             </h2>
           </div>
@@ -131,7 +131,7 @@ export default function Careers() {
           {roles.length === 0 ? (
             <div className="rounded-3xl border border-border bg-surface p-10 md:p-14">
               <p className="max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
-                We don&apos;t have specific roles posted right now — but we hire
+                We don&apos;t have specific roles posted right now, but we hire
                 opportunistically when the right person reaches out. If you&apos;re a
                 senior engineer or designer who likes the way we work, send a note
                 and a portfolio. We respond to every one.
@@ -177,7 +177,7 @@ export default function Careers() {
               Think we&apos;d work well together?
             </h2>
             <p className="mt-6 text-base leading-relaxed text-muted-foreground md:text-lg">
-              Send a portfolio, a code sample, or a project you&apos;re proud of —
+              Send a portfolio, a code sample, or a project you&apos;re proud of,
               and what you&apos;d want from your next gig.
             </p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-3">

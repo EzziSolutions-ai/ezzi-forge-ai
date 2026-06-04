@@ -46,7 +46,7 @@ export default function Services() {
 
             <p className="mt-7 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
               Custom software, mobile apps, web platforms, SaaS products, and UI/UX
-              design — each built around the same AI-augmented workflow that gets
+              design, each built around the same AI-augmented workflow that gets
               production apps live in under 60 days.
             </p>
           

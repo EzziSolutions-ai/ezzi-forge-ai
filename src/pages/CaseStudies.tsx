@@ -46,7 +46,7 @@ export default function CaseStudies() {
   return (
     <>
       <Helmet>
-        <title>Case Studies — Ezzi Solutions AI</title>
+        <title>Case Studies: Ezzi Solutions AI</title>
         <meta
           name="description"
           content="Real systems in production: voice-driven healthcare, sales automation, manufacturing dashboards, field operations apps. Eight case studies across six industries."
@@ -77,7 +77,7 @@ export default function CaseStudies() {
             </h1>
 
             <p className="mt-7 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
-              Eight projects across six industries — voice AI, sales platforms,
+              Eight projects across six industries: voice AI, sales platforms,
               manufacturing dashboards, field-ops apps. Each one shipped on a
               tight timeline; each one still in production.
             </p>
@@ -205,7 +205,7 @@ export default function CaseStudies() {
           {filtered.length === 0 && (
             <div className="rounded-2xl border border-border bg-surface p-12 text-center">
               <p className="text-base text-muted-foreground">
-                No case studies in this industry yet —{" "}
+                No case studies in this industry yet:{{" "}}
                 <button
                   type="button"
                   onClick={() => onFilter("All")}

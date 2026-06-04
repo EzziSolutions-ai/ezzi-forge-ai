@@ -16,7 +16,7 @@ export default function Blog() {
   return (
     <>
       <Helmet>
-        <title>Insights — Ezzi Solutions AI</title>
+        <title>Insights: Ezzi Solutions AI</title>
         <meta name="description" content="Lessons from shipping AI-powered software for startups and SMBs. Process notes, case-study deep-dives, opinions on the craft." />
       </Helmet>
 

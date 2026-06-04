@@ -6,7 +6,7 @@ const sections = [
   {
     h: "1. What we collect",
     p: [
-      "When you submit the quote form or contact form, we collect the information you give us — typically name, email, company, project description, and a rough budget. That's it.",
+      "When you submit the quote form or contact form, we collect the information you give us: typically name, email, company, project description, and a rough budget. That's it.",
       "When you visit the site, we use privacy-respecting analytics that count page views without tracking individual visitors. We do not use third-party advertising trackers.",
     ],
   },
@@ -70,7 +70,7 @@ export default function Privacy() {
               We try to keep this short and in plain English. This page tells you what
               we collect, what we do with it, and what rights you have.{" "}
               <span className="text-muted-2">
-                (This is template language — replace with your jurisdiction&apos;s legal review before launch.)
+                (This is template language: replace with your jurisdiction&apos;s legal review before launch.)
               </span>
             </p>
 
