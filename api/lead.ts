@@ -36,6 +36,10 @@ const FROM = process.env.LEAD_FROM || "Ezzi Solutions Website <leads@updates.ezz
 // Sender for the auto-confirmation the lead receives (must also be a
 // verified-domain address). Replies go to the real sales inbox (TO).
 const CONFIRM_FROM = process.env.CONFIRM_FROM || "Ezzi Solutions AI <sales@updates.ezzisolutions.ai>";
+// Default Reply-To applied to both the internal lead email and the visitor
+// confirmation. NOTE: updates.ezzisolutions.ai has receiving disabled in
+// Resend — set up inbound/forwarding for this mailbox or replies may bounce.
+const REPLY_TO = process.env.REPLY_TO || "sales@updates.ezzisolutions.ai";
 const LOGO_URL = "https://ezzisolutions.ai/logo-full-light.png";
 const SITE_URL = "https://ezzisolutions.ai";
 
@@ -212,7 +216,7 @@ export default async function handler(req: Req, res: Res) {
       body: JSON.stringify({
         from: FROM,
         to: [TO],
-        reply_to: email,
+        reply_to: REPLY_TO,
         subject: `New lead · ${formLabel}${data.name ? ` — ${String(data.name)}` : ""}`,
         html,
       }),
@@ -243,7 +247,7 @@ export default async function handler(req: Req, res: Res) {
       body: JSON.stringify({
         from: CONFIRM_FROM,
         to: [email],
-        reply_to: TO,
+        reply_to: REPLY_TO,
         subject: confirmation.subject,
         html: confirmation.html,
       }),
