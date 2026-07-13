@@ -33,6 +33,11 @@ const TO = process.env.LEAD_TO || "sales@ezzisolutions.ai";
 // Must be on a Resend-verified domain. The account's domain is
 // updates.ezzisolutions.ai — override with LEAD_FROM if that changes.
 const FROM = process.env.LEAD_FROM || "Ezzi Solutions Website <leads@updates.ezzisolutions.ai>";
+// Sender for the auto-confirmation the lead receives (must also be a
+// verified-domain address). Replies go to the real sales inbox (TO).
+const CONFIRM_FROM = process.env.CONFIRM_FROM || "Ezzi Solutions AI <sales@updates.ezzisolutions.ai>";
+const LOGO_URL = "https://ezzisolutions.ai/logo-full-light.png";
+const SITE_URL = "https://ezzisolutions.ai";
 
 const escapeHtml = (v: unknown): string =>
   String(v ?? "")
@@ -48,6 +53,67 @@ const FORM_LABELS: Record<string, string> = {
   prototype: "Prototype-to-production quote",
   newsletter: "Newsletter signup",
 };
+
+// Branded auto-confirmation the visitor receives right after submitting.
+function buildConfirmation(formType: string, name: string): { subject: string; html: string } {
+  const firstName = name.trim().split(/\s+/)[0] || "";
+  const greeting = firstName ? `, ${escapeHtml(firstName)}` : "";
+  const isNewsletter = formType === "newsletter";
+
+  const subject = isNewsletter
+    ? "You're subscribed — Ezzi Solutions AI"
+    : "We've got your request — Ezzi Solutions AI";
+
+  const eyebrow = isNewsletter ? "Subscription confirmed" : "Request received";
+  const heading = isNewsletter
+    ? `You're on the list${greeting}.`
+    : `Thanks${greeting} — we've got your request.`;
+  const intro = isNewsletter
+    ? "Thanks for subscribing to Ezzi Solutions AI. You'll be among the first to get our essays on shipping AI-powered software."
+    : "Thank you for reaching out to Ezzi Solutions AI. Your request has landed with our team, and a senior engineer — not a sales rep — will personally review it.";
+  const highlight = isNewsletter
+    ? "📬 We'll send the very first issue the moment it ships."
+    : "⏱️ We'll reach out within 24 hours.";
+  const outro = isNewsletter
+    ? "In the meantime, feel free to explore our recent work. Just reply to this email if you ever want to reach us."
+    : "In the meantime, feel free to explore our recent work — or simply reply to this email if you'd like to add anything.";
+
+  const html = `
+  <div style="background:#f1f5f9;padding:32px 16px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+    <div style="max-width:560px;margin:0 auto;background:#ffffff;border-radius:16px;overflow:hidden;border:1px solid #e2e8f0;box-shadow:0 10px 40px rgba(15,23,42,0.08);">
+      <div style="padding:32px 40px 24px;text-align:center;border-bottom:1px solid #eef2f7;">
+        <img src="${LOGO_URL}" alt="Ezzi Solutions AI" width="220" style="max-width:220px;width:220px;height:auto;display:inline-block;" />
+      </div>
+      <div style="height:4px;background:linear-gradient(90deg,#1e3a8a,#2563eb,#60a5fa);"></div>
+      <div style="padding:36px 40px;">
+        <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#2563eb;font-weight:700;">${eyebrow}</div>
+        <h1 style="margin:12px 0 0;font-size:23px;line-height:1.3;color:#0f172a;font-weight:700;">${heading}</h1>
+        <p style="margin:20px 0 0;font-size:15px;line-height:1.7;color:#475569;">${intro}</p>
+        <div style="margin:24px 0;padding:16px 20px;background:#f8fafc;border-left:3px solid #2563eb;border-radius:8px;">
+          <p style="margin:0;font-size:15px;line-height:1.5;color:#0f172a;font-weight:600;">${highlight}</p>
+        </div>
+        <p style="margin:0;font-size:15px;line-height:1.7;color:#475569;">${outro}</p>
+        <div style="margin:28px 0 4px;">
+          <a href="${SITE_URL}/case-studies" style="display:inline-block;background:#2563eb;color:#ffffff;text-decoration:none;font-size:14px;font-weight:600;padding:12px 26px;border-radius:999px;">See our work &rarr;</a>
+        </div>
+      </div>
+      <div style="padding:24px 40px;background:#0f172a;">
+        <div style="color:#f1f5f9;font-weight:600;font-size:13px;">Ezzi Solutions AI</div>
+        <div style="color:#94a3b8;font-size:12px;margin-top:2px;">A Henagon Company</div>
+        <div style="margin-top:10px;font-size:12px;">
+          <a href="mailto:sales@ezzisolutions.ai" style="color:#60a5fa;text-decoration:none;">sales@ezzisolutions.ai</a>
+          <span style="color:#475569;">&nbsp;·&nbsp;</span>
+          <a href="${SITE_URL}" style="color:#60a5fa;text-decoration:none;">ezzisolutions.ai</a>
+        </div>
+      </div>
+    </div>
+    <p style="max-width:560px;margin:16px auto 0;text-align:center;font-size:11px;line-height:1.6;color:#94a3b8;">
+      You're receiving this because you submitted a form at ezzisolutions.ai.
+    </p>
+  </div>`;
+
+  return { subject, html };
+}
 
 export default async function handler(req: Req, res: Res) {
   if (req.method !== "POST") {
@@ -162,6 +228,28 @@ export default async function handler(req: Req, res: Res) {
     console.error("[lead] Resend request threw", err);
     res.status(502).json({ ok: false, error: "Email delivery failed" });
     return;
+  }
+
+  // Auto-confirmation to the visitor — non-fatal: the internal lead already
+  // sent, so a hiccup here must not fail the request.
+  try {
+    const confirmation = buildConfirmation(formType, String(data.name || ""));
+    await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${RESEND_API_KEY}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from: CONFIRM_FROM,
+        to: [email],
+        reply_to: TO,
+        subject: confirmation.subject,
+        html: confirmation.html,
+      }),
+    });
+  } catch (err) {
+    console.error("[lead] confirmation email failed", err);
   }
 
   // Optional Slack ping — fire-and-forget, never blocks the response.
