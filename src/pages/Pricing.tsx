@@ -19,6 +19,7 @@ import {
 import Container from "@/components/layout/Container";
 import LightSection from "@/components/layout/LightSection";
 import HeroIllustration from "@/components/sections/HeroIllustration";
+import { submitLead } from "@/lib/submitLead";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -105,10 +106,27 @@ export default function Pricing() {
   const [timeline, setTimeline] = useState<(typeof timelines)[number]>("1–3 months");
   const [budget, setBudget] = useState<(typeof budgets)[number]>("$10K – $25K");
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // TODO: wire to backend / Resend / Formspree before launch
+    if (submitting) return;
+    setSubmitting(true);
+
+    const fd = new FormData(e.currentTarget);
+    await submitLead({
+      formType: "pricing",
+      name: (fd.get("name") as string) ?? "",
+      email: (fd.get("email") as string) ?? "",
+      company: (fd.get("company") as string) ?? "",
+      brief: (fd.get("brief") as string) ?? "",
+      stage,
+      timeline,
+      budget,
+      website: (fd.get("website") as string) ?? "",
+    });
+
+    // Always confirm to the visitor — the lead is emailed to sales@ezzisolutions.ai.
     setSubmitted(true);
   };
 
@@ -333,8 +351,14 @@ export default function Pricing() {
               {!submitted ? (
                 <form
                   onSubmit={onSubmit}
-                  className="rounded-3xl border border-border bg-surface p-7 md:p-9"
+                  className="relative rounded-3xl border border-border bg-surface p-7 md:p-9"
                 >
+                  {/* Honeypot — hidden from humans, dropped server-side if filled */}
+                  <div aria-hidden="true" className="pointer-events-none absolute -left-[9999px] top-0 h-0 w-0 overflow-hidden opacity-0" tabIndex={-1}>
+                    <label htmlFor="website">Website (leave blank)</label>
+                    <input type="text" id="website" name="website" tabIndex={-1} autoComplete="off" />
+                  </div>
+
                   <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
                     <Field label="Your name" name="name" placeholder="Jane Founder" required />
                     <Field
@@ -388,10 +412,13 @@ export default function Pricing() {
 
                   <button
                     type="submit"
-                    className="group mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-accent px-6 py-4 text-sm font-medium text-accent-foreground transition-all hover:bg-accent/90 hover:shadow-glow active:scale-[0.98] md:w-auto md:px-8"
+                    disabled={submitting}
+                    className="group mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-accent px-6 py-4 text-sm font-medium text-accent-foreground transition-all hover:bg-accent/90 hover:shadow-glow active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-70 md:w-auto md:px-8"
                   >
-                    Send quote request
-                    <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    {submitting ? "Sending…" : "Send quote request"}
+                    {!submitting && (
+                      <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    )}
                   </button>
 
                   <p className="mt-5 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-2">
@@ -412,7 +439,7 @@ export default function Pricing() {
                   </h3>
                   <p className="mt-3 max-w-md text-sm leading-relaxed text-muted-foreground">
                     You&apos;ll hear from a senior engineer within 48 hours. If it&apos;s
-                    urgent, ping us at <span className="text-foreground">hello@ezzisolutions.ai</span>.
+                    urgent, ping us at <span className="text-foreground">sales@ezzisolutions.ai</span>.
                   </p>
                   <Link
                     to="/case-studies"

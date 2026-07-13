@@ -1,9 +1,11 @@
+import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Mail } from "lucide-react";
+import { ArrowUpRight, Check, Mail } from "lucide-react";
 import Container from "@/components/layout/Container";
 import HeroIllustration from "@/components/sections/HeroIllustration";
+import { submitLead } from "@/lib/submitLead";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -75,35 +77,7 @@ export default function Blog() {
                   </p>
                 </div>
                 <div className="md:col-span-7">
-                  <form
-                    onSubmit={(e) => { e.preventDefault(); /* TODO: wire to newsletter */ }}
-                    className="rounded-2xl border border-border bg-background p-6 md:p-8"
-                  >
-                    <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-2">
-                      Get the first issue
-                    </div>
-                    <div className="mt-5 flex flex-col gap-3 sm:flex-row">
-                      <div className="relative flex-1">
-                        <Mail className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-2" />
-                        <input
-                          type="email"
-                          required
-                          placeholder="you@yourco.com"
-                          className="w-full rounded-full border border-border bg-surface px-11 py-3 text-sm text-foreground placeholder:text-muted-2 focus:border-border-strong focus:outline-none focus:ring-1 focus:ring-accent/40"
-                        />
-                      </div>
-                      <button
-                        type="submit"
-                        className="group inline-flex items-center justify-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-medium text-accent-foreground transition-all hover:bg-accent/90 hover:shadow-glow active:scale-[0.98]"
-                      >
-                        Subscribe
-                        <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                      </button>
-                    </div>
-                    <p className="mt-5 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-2">
-                      One email per post · Unsubscribe at any time
-                    </p>
-                  </form>
+                  <NewsletterForm />
 
                   <div className="mt-8 grid grid-cols-1 gap-3 md:grid-cols-3">
                     {[
@@ -145,5 +119,84 @@ export default function Blog() {
         </Container>
       </section>
     </>
+  );
+}
+
+// ─── Newsletter signup ──────────────────────────────────────────
+// Sends the subscriber to /api/lead, which emails sales@ezzisolutions.ai.
+function NewsletterForm() {
+  const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (submitting) return;
+    setSubmitting(true);
+
+    const fd = new FormData(e.currentTarget);
+    await submitLead({
+      formType: "newsletter",
+      email: (fd.get("email") as string) ?? "",
+      website: (fd.get("website") as string) ?? "",
+    });
+
+    setSubmitted(true);
+  };
+
+  if (submitted) {
+    return (
+      <div className="rounded-2xl border border-border bg-background p-6 md:p-8">
+        <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-accent/20 bg-accent/10">
+          <Check className="h-4 w-4 text-accent" strokeWidth={2.5} />
+        </div>
+        <div className="mt-4 text-base font-semibold tracking-tight text-foreground">
+          You&apos;re on the list.
+        </div>
+        <p className="mt-2 text-sm text-muted-foreground">
+          We&apos;ll send the first issue the moment it ships.
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <form
+      onSubmit={onSubmit}
+      className="relative rounded-2xl border border-border bg-background p-6 md:p-8"
+    >
+      <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-2">
+        Get the first issue
+      </div>
+      {/* Honeypot — hidden from humans, dropped server-side if filled */}
+      <div aria-hidden="true" className="pointer-events-none absolute -left-[9999px] top-0 h-0 w-0 overflow-hidden opacity-0" tabIndex={-1}>
+        <label htmlFor="website">Website (leave blank)</label>
+        <input type="text" id="website" name="website" tabIndex={-1} autoComplete="off" />
+      </div>
+      <div className="mt-5 flex flex-col gap-3 sm:flex-row">
+        <div className="relative flex-1">
+          <Mail className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-2" />
+          <input
+            type="email"
+            name="email"
+            required
+            placeholder="you@yourco.com"
+            className="w-full rounded-full border border-border bg-surface px-11 py-3 text-sm text-foreground placeholder:text-muted-2 focus:border-border-strong focus:outline-none focus:ring-1 focus:ring-accent/40"
+          />
+        </div>
+        <button
+          type="submit"
+          disabled={submitting}
+          className="group inline-flex items-center justify-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-medium text-accent-foreground transition-all hover:bg-accent/90 hover:shadow-glow active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-70"
+        >
+          {submitting ? "Subscribing…" : "Subscribe"}
+          {!submitting && (
+            <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          )}
+        </button>
+      </div>
+      <p className="mt-5 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-2">
+        One email per post · Unsubscribe at any time
+      </p>
+    </form>
   );
 }

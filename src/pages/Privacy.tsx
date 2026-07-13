@@ -31,7 +31,7 @@ const sections = [
   {
     h: "5. Your rights",
     p: [
-      "You can request access to, correction of, or deletion of any personal information we hold about you. Email hello@ezzisolutions.ai and we'll respond within 30 days.",
+      "You can request access to, correction of, or deletion of any personal information we hold about you. Email sales@ezzisolutions.ai and we'll respond within 30 days.",
     ],
   },
   {
@@ -96,8 +96,8 @@ export default function Privacy() {
                 </h2>
                 <p className="mt-4 text-sm leading-relaxed text-muted-foreground md:text-base">
                   Questions? Email{" "}
-                  <a href="mailto:hello@ezzisolutions.ai" className="text-foreground underline-offset-2 hover:underline">
-                    hello@ezzisolutions.ai
+                  <a href="mailto:sales@ezzisolutions.ai" className="text-foreground underline-offset-2 hover:underline">
+                    sales@ezzisolutions.ai
                   </a>{" "}
                   or use the{" "}
                   <Link to="/contact" className="text-foreground underline-offset-2 hover:underline">

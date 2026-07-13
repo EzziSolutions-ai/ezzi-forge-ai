@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import Container from "@/components/layout/Container";
 import HeroIllustration from "@/components/sections/HeroIllustration";
+import { submitLead } from "@/lib/submitLead";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -34,10 +35,25 @@ const quickFaqs = [
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // TODO: wire to backend / Resend / Formspree before launch
+    if (submitting) return;
+    setSubmitting(true);
+
+    const fd = new FormData(e.currentTarget);
+    await submitLead({
+      formType: "contact",
+      name: (fd.get("name") as string) ?? "",
+      email: (fd.get("email") as string) ?? "",
+      company: (fd.get("company") as string) ?? "",
+      subject: (fd.get("subject") as string) ?? "",
+      message: (fd.get("message") as string) ?? "",
+      website: (fd.get("website") as string) ?? "",
+    });
+
+    // Always confirm to the visitor — the lead is emailed to sales@ezzisolutions.ai.
     setSubmitted(true);
   };
 
@@ -113,6 +129,12 @@ export default function Contact() {
                     Tell us what you&apos;re building.
                   </h2>
 
+                  {/* Honeypot — hidden from humans, dropped server-side if filled */}
+                  <div aria-hidden="true" className="pointer-events-none absolute -left-[9999px] top-0 h-0 w-0 overflow-hidden opacity-0" tabIndex={-1}>
+                    <label htmlFor="website">Website (leave blank)</label>
+                    <input type="text" id="website" name="website" tabIndex={-1} autoComplete="off" />
+                  </div>
+
                   <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-2">
                     <Field label="Your name" name="name" placeholder="Jane Founder" required />
                     <Field
@@ -156,10 +178,13 @@ export default function Contact() {
 
                   <button
                     type="submit"
-                    className="group mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full bg-accent px-6 py-4 text-sm font-medium text-accent-foreground transition-all hover:bg-accent/90 hover:shadow-glow active:scale-[0.98] md:w-auto md:px-8"
+                    disabled={submitting}
+                    className="group mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full bg-accent px-6 py-4 text-sm font-medium text-accent-foreground transition-all hover:bg-accent/90 hover:shadow-glow active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-70 md:w-auto md:px-8"
                   >
-                    Send message
-                    <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    {submitting ? "Sending…" : "Send message"}
+                    {!submitting && (
+                      <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    )}
                   </button>
 
                   <p className="mt-5 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-2">
@@ -182,10 +207,10 @@ export default function Contact() {
                     A senior engineer will reply within 48 hours. If it&apos;s urgent,
                     email{" "}
                     <a
-                      href="mailto:hello@ezzisolutions.ai"
+                      href="mailto:sales@ezzisolutions.ai"
                       className="text-foreground underline-offset-2 hover:underline"
                     >
-                      hello@ezzisolutions.ai
+                      sales@ezzisolutions.ai
                     </a>
                     .
                   </p>
@@ -205,8 +230,8 @@ export default function Contact() {
                 <InfoCard
                   icon={Mail}
                   label="Email"
-                  value="hello@ezzisolutions.ai"
-                  href="mailto:hello@ezzisolutions.ai"
+                  value="sales@ezzisolutions.ai"
+                  href="mailto:sales@ezzisolutions.ai"
                 />
                 <InfoCard
                   icon={Calendar}

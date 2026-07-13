@@ -1,32 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, Check } from "lucide-react";
 import Container from "@/components/layout/Container";
+import { submitLead } from "@/lib/submitLead";
 
-// Slack incoming webhook for #leads-from-prototype-to-production
-//
-// Resolution order (first non-empty wins):
-//   1. import.meta.env.VITE_SLACK_WEBHOOK_URL  (Lovable / Vercel / .env)
-//   2. The base64-encoded fallback below — decoded at runtime
-//
-// Why base64-encode the fallback:
-//   GitHub's secret scanner pattern-matches "hooks.slack.com/services/..."
-//   in plaintext. If detected, GitHub auto-notifies Slack, which revokes
-//   the webhook within minutes. Base64 hides the URL from the scanner
-//   (it's not actually a "secret" — Slack webhooks are write-only — but
-//   we still want to avoid the auto-revocation tripwire).
-//
-//   atob() is built into every browser. Tree-shaking-safe.
-//
-// To rotate: regenerate the webhook in Slack, then either
-//   - set VITE_SLACK_WEBHOOK_URL in your env (preferred), or
-//   - encode the new URL with btoa() in browser DevTools and paste below.
-const ENCODED_FALLBACK_URL =
-  "aHR0cHM6Ly9ob29rcy5zbGFjay5jb20vc2VydmljZXMvVDBCNzZTNEVIN0MvQjBCNlJHQ0FFUVAv" +
-  "emtUZEFNQ3VWVGxPM3ROZ2syR09UZU1K";
-
-const SLACK_WEBHOOK_URL: string | undefined =
-  (import.meta.env.VITE_SLACK_WEBHOOK_URL as string | undefined) ||
-  (typeof atob === "function" ? atob(ENCODED_FALLBACK_URL) : undefined);
+// Leads are POSTed to /api/lead, which emails sales@ezzisolutions.ai (via
+// Resend) and — if SLACK_WEBHOOK_URL is set in Vercel — also pings Slack.
 
 const projectTypes = [
   "Internal tool / ops platform",
@@ -73,78 +51,20 @@ export default function PrototypeQuoteForm() {
       return;
     }
 
-    const name = (fd.get("name") as string) ?? "";
-    const email = (fd.get("email") as string) ?? "";
-    const company = (fd.get("company") as string) ?? "(not provided)";
-    const tool = ((fd.get("tool") as string) ?? "").trim() || "(not provided)";
-    const stuck = (fd.get("stuck") as string) ?? "";
+    // ── Send the lead → /api/lead emails sales@ezzisolutions.ai ──
+    await submitLead({
+      formType: "prototype",
+      name: (fd.get("name") as string) ?? "",
+      email: (fd.get("email") as string) ?? "",
+      company: (fd.get("company") as string) ?? "",
+      tool: (fd.get("tool") as string) ?? "",
+      stuck: (fd.get("stuck") as string) ?? "",
+      projectType,
+      budget,
+      website: (fd.get("website") as string) ?? "",
+    });
 
-    // ── Build Slack message ────────────────────────────────────
-    // Using Block Kit for a nicely formatted message in the channel.
-    const payload = {
-      text: `New lead — ${name} · ${projectType} · ${budget}`,
-      blocks: [
-        {
-          type: "header",
-          text: {
-            type: "plain_text",
-            text: "🚨 New lead — /from-prototype-to-production",
-            emoji: true,
-          },
-        },
-        {
-          type: "section",
-          fields: [
-            { type: "mrkdwn", text: `*Name*\n${name}` },
-            { type: "mrkdwn", text: `*Email*\n<mailto:${email}|${email}>` },
-            { type: "mrkdwn", text: `*Company*\n${company}` },
-            { type: "mrkdwn", text: `*Budget*\n${budget}` },
-            { type: "mrkdwn", text: `*Project type*\n${projectType}` },
-            { type: "mrkdwn", text: `*AI tool tried*\n${tool}` },
-          ],
-        },
-        {
-          type: "section",
-          text: {
-            type: "mrkdwn",
-            text: `*Where it broke:*\n>${stuck.replace(/\n/g, "\n>")}`,
-          },
-        },
-        {
-          type: "context",
-          elements: [
-            {
-              type: "mrkdwn",
-              text: `📥 Submitted at ${new Date().toLocaleString("en-US", { dateStyle: "medium", timeStyle: "short" })} · 🔗 https://ezzi-forge-ai.lovable.app/from-prototype-to-production`,
-            },
-          ],
-        },
-        { type: "divider" },
-      ],
-    };
-
-    // ── Fire-and-forget POST (no-cors avoids the OPTIONS preflight) ──
-    if (!SLACK_WEBHOOK_URL) {
-      // eslint-disable-next-line no-console
-      console.warn("[Ezzi] VITE_SLACK_WEBHOOK_URL is not set. Lead captured in UI only.");
-      setSubmitted(true);
-      return;
-    }
-
-    try {
-      await fetch(SLACK_WEBHOOK_URL, {
-        method: "POST",
-        mode: "no-cors",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-    } catch (err) {
-      // Log but don't block — we'd rather show success and miss a Slack ping
-      // than make the user think their submission failed.
-      // eslint-disable-next-line no-console
-      console.error("Slack notification failed:", err);
-    }
-
+    // Always confirm — we'd rather show success than block on a transient blip.
     setSubmitted(true);
   };
 
