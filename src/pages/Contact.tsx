@@ -6,7 +6,6 @@ import {
   ArrowUpRight,
   Mail,
   MapPin,
-  Calendar,
   Github,
   Linkedin,
   Twitter,
@@ -232,14 +231,6 @@ export default function Contact() {
                   label="Email"
                   value="sales@ezzisolutions.ai"
                   href="mailto:sales@ezzisolutions.ai"
-                />
-                <InfoCard
-                  icon={Calendar}
-                  label="Book a call"
-                  value="30-min discovery on Cal.com"
-                  href="https://cal.com/"
-                  external
-                  hint="Replace with your Cal.com / Calendly link before launch"
                 />
                 <InfoCard
                   icon={MapPin}
