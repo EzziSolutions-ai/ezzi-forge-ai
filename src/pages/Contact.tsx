@@ -6,6 +6,8 @@ import {
   ArrowUpRight,
   Mail,
   MapPin,
+  Phone,
+  Clock,
   Github,
   Linkedin,
   Twitter,
@@ -233,7 +235,18 @@ export default function Contact() {
                   href="mailto:sales@ezzisolutions.ai"
                 />
                 <InfoCard
+                  icon={Phone}
+                  label="Phone"
+                  value="+1 (917) 697-8576"
+                  href="tel:+19176978576"
+                />
+                <InfoCard
                   icon={MapPin}
+                  label="Office"
+                  value="440 Cobia Dr, Unit 1101, Katy, TX 77494"
+                />
+                <InfoCard
+                  icon={Clock}
                   label="Hours"
                   value="Mon–Fri · 9am–6pm ET"
                 />

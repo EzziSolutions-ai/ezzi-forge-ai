@@ -1,6 +1,11 @@
 import { Link } from "react-router-dom";
-import { Github, Linkedin, Twitter, ArrowUpRight } from "lucide-react";
+import { Github, Linkedin, Twitter, ArrowUpRight, MapPin, Phone, Mail } from "lucide-react";
 import Container from "./Container";
+
+const ADDRESS = "440 Cobia Dr, Unit 1101, Katy, TX 77494";
+const PHONE_DISPLAY = "+1 (917) 697-8576";
+const PHONE_HREF = "tel:+19176978576";
+const EMAIL = "sales@ezzisolutions.ai";
 
 const cols = [
   {
@@ -52,6 +57,30 @@ export default function Footer() {
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-muted-foreground">
               Custom software & apps, built with AI, launched in weeks.
             </p>
+            <address className="mt-6 space-y-2.5 not-italic">
+              <div className="flex items-start gap-2.5 text-sm leading-relaxed text-muted-foreground">
+                <MapPin className="mt-0.5 h-3.5 w-3.5 shrink-0 text-muted-2" />
+                <span>{ADDRESS}</span>
+              </div>
+              <div className="flex items-start gap-2.5 text-sm leading-relaxed">
+                <Phone className="mt-0.5 h-3.5 w-3.5 shrink-0 text-muted-2" />
+                <a
+                  href={PHONE_HREF}
+                  className="text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  {PHONE_DISPLAY}
+                </a>
+              </div>
+              <div className="flex items-start gap-2.5 text-sm leading-relaxed">
+                <Mail className="mt-0.5 h-3.5 w-3.5 shrink-0 text-muted-2" />
+                <a
+                  href={`mailto:${EMAIL}`}
+                  className="text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  {EMAIL}
+                </a>
+              </div>
+            </address>
             <Link
               to="/contact"
               className="group mt-6 inline-flex items-center gap-1.5 text-sm text-foreground"

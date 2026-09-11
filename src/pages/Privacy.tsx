@@ -4,6 +4,9 @@ import Container from "@/components/layout/Container";
 
 const LAST_UPDATED = "28 August 2026";
 const CONTACT_EMAIL = "sales@ezzisolutions.ai";
+const CONTACT_PHONE = "+1 (917) 697-8576";
+const CONTACT_PHONE_HREF = "tel:+19176978576";
+const CONTACT_ADDRESS = "440 Cobia Dr, Unit 1101, Katy, TX 77494";
 
 type Block =
   | { type: "p"; text: string }
@@ -26,7 +29,7 @@ const sections: Section[] = [
       },
       {
         type: "p",
-        text: "For any question about this policy, or to exercise the rights described in section 8, email " + CONTACT_EMAIL + ".",
+        text: "Ezzi Solutions AI is the business responsible for the personal information described here. You can reach us at " + CONTACT_ADDRESS + ", by phone at " + CONTACT_PHONE + ", or by email at " + CONTACT_EMAIL + ".",
       },
     ],
   },
@@ -371,6 +374,18 @@ export default function Privacy() {
                   </Link>
                   .
                 </p>
+                <address className="mt-6 space-y-1 not-italic text-sm leading-relaxed text-muted-foreground md:text-base">
+                  <div className="text-foreground">Ezzi Solutions AI</div>
+                  <div>{CONTACT_ADDRESS}</div>
+                  <div>
+                    <a
+                      href={CONTACT_PHONE_HREF}
+                      className="underline-offset-2 hover:text-foreground hover:underline"
+                    >
+                      {CONTACT_PHONE}
+                    </a>
+                  </div>
+                </address>
               </section>
             </div>
 
