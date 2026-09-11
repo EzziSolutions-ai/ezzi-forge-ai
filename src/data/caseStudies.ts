@@ -79,11 +79,6 @@ export const caseStudies: CaseStudy[] = [
       { label: "Records / shift / clinician", value: "12 → 27" },
       { label: "Audit-ready coverage", value: "100%" },
     ],
-    quote: {
-      text:
-        "We were quoted six months by two other shops. Ezzi shipped CareFlow in ten weeks, on the price, and our nurses actually use it.",
-      attribution: "VP Operations · Healthcare network (placeholder)",
-    },
     visualPattern: "wave",
   },
   {
@@ -114,11 +109,6 @@ export const caseStudies: CaseStudy[] = [
       { label: "Reply-rate lift", value: "+3.4×" },
       { label: "SDR time saved", value: "9 hrs / wk" },
     ],
-    quote: {
-      text:
-        "Less than half what the agencies quoted. Better tool than what we replaced. The kind of platform we'd have hired a CTO to build.",
-      attribution: "Founder & CEO · B2B SaaS startup (placeholder)",
-    },
     visualPattern: "pipeline",
   },
   {

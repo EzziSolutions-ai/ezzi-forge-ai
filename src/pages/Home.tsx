@@ -13,7 +13,6 @@ import ServicesSnapshot from "@/components/sections/ServicesSnapshot";
 import FeaturedWork from "@/components/sections/FeaturedWork";
 import ProcessSnapshot from "@/components/sections/ProcessSnapshot";
 import AIAdvantage from "@/components/sections/AIAdvantage";
-import TestimonialsTeaser from "@/components/sections/TestimonialsTeaser";
 import FAQSnippet from "@/components/sections/FAQSnippet";
 import FinalCTA from "@/components/sections/FinalCTA";
 
@@ -169,7 +168,6 @@ export default function Home() {
       <FeaturedWork />
       <ProcessSnapshot />
       <LightSection><AIAdvantage /></LightSection>
-      <TestimonialsTeaser />
       <LightSection><FAQSnippet /></LightSection>
       <FinalCTA />
     </>
